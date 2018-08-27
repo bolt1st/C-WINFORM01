@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chip Name="PIS1702">
+	<Module Name="CCM_1">
+		<reg hex_00="1.750" Address00="4117" hex_01="-0.750" Address01="4119" hex_02="0.000" Address02="411B" />
+		<reg hex_00="1.750" Address00="4118" hex_01="-0.750" Address01="411A" hex_02="0.000" Address02="411C" />
+
+		<reg hex_00="-0.400" Address00="411D" hex_01="1.480" Address01="411F" hex_02="-0.080" Address02="4121" />
+		<reg hex_00="-0.400" Address00="411E" hex_01="1.480" Address01="4120" hex_02="-0.080" Address02="4122" />
+
+		<reg hex_00="-0.099" Address00="4123" hex_01="-0.801" Address01="4125" hex_02="1.900" Address02="4127" />
+		<reg hex_00="-0.099" Address00="4124" hex_01="-0.801" Address01="4126" hex_02="1.900" Address02="4128" />
+
+	</Module>
+
+
+</chip>

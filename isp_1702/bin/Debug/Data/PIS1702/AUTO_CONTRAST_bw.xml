@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chip Name="PIS1702">
+	<Module Name="Auto_Contrast">
+		<reg name="P1" X="64" Y="64" Address_X="4905" Address_Y="" />
+		<reg name="P2" X="128" Y="128" Address_X="4906" Address_Y="4907"/>
+		<reg name="P3" X="192" Y="192" Address_X="4908" Address_Y=""/>
+	</Module>
+
+
+</chip>

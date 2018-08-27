@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chip Name="PIS1702">
+	<Module Name="GAMMA_X">
+		<reg name="X1" Address="0x4201" y="3463" x="63" pid="1" pid2="1"/>
+		<reg name="X1" Address="0x4202" y="3463" x="63" pid="1" pid2=""/>
+	
+		<reg name="X2" Address="0x4203" y="3563" x="127" pid="2" pid2="2"/>
+		<reg name="X2" Address="0x4204" y="3563" x="127" pid="2" pid2=""/>
+	
+		<reg name="X3" Address="0x4205" y="3622" x="191" pid="3" pid2="3"/>
+		<reg name="X3" Address="0x4206" y="3622" x="191" pid="3" pid2=""/>
+	
+		<reg name="X4" Address="0x4207" y="3664" x="255" pid="4" pid2="4"/>
+		<reg name="X4" Address="0x4208" y="3664" x="255" pid="4" pid2=""/>
+	
+		<reg name="X5" Address="0x4209" y="3697" x="319" pid="5" pid2="5"/>
+		<reg name="X5" Address="0x420A" y="3697" x="319" pid="5" pid2=""/>
+	
+		<reg name="X6" Address="0x420B" y="3725" x="383" pid="6" pid2="6"/>
+		<reg name="X6" Address="0x420C" y="3725" x="383" pid="6" pid2=""/>
+	
+		<reg name="X7" Address="0x420D" y="3748" x="447" pid="7" pid2="7"/>
+		<reg name="X7" Address="0x420E" y="3748" x="447" pid="7" pid2=""/>
+	
+		<reg name="X8" Address="0x420F" y="3768" x="511" pid="8" pid2="8"/>
+		<reg name="X8" Address="0x4210" y="3768" x="511" pid="8" pid2=""/>
+	
+		<reg name="X9" Address="0x4211" y="3786" x="575" pid="9" pid2="9"/>
+		<reg name="X9" Address="0x4212" y="3786" x="575" pid="9" pid2=""/>
+	
+		<reg name="X10" Address="0x4213" y="3802" x="639" pid="10" pid2="10"/>
+		<reg name="X10" Address="0x4214" y="3802" x="639" pid="10" pid2=""/>
+	
+		<reg name="X11" Address="0x4215" y="3817" x="703" pid="11" pid2="11"/>
+		<reg name="X11" Address="0x4216" y="3817" x="703" pid="11" pid2=""/>
+	
+		<reg name="X12" Address="0x4217" y="3830" x="767" pid="12" pid2="12"/>
+		<reg name="X12" Address="0x4218" y="3830" x="767" pid="12" pid2=""/>
+	
+		<reg name="X13" Address="0x4219" y="3842" x="831" pid="13" pid2="13"/>
+		<reg name="X13" Address="0x421A" y="3842" x="831" pid="13" pid2=""/>
+	
+		<reg name="X14" Address="0x421B" y="3854" x="895" pid="14" pid2="14"/>
+		<reg name="X14" Address="0x421C" y="3854" x="895" pid="14" pid2=""/>
+	
+		<reg name="X15" Address="0x421D" y="3864" x="959" pid="15" pid2="15"/>
+		<reg name="X15" Address="0x421E" y="3864" x="959" pid="15" pid2=""/>
+	
+		<reg name="X16" Address="0x421F" y="3874" x="1023" pid="16" pid2="16"/>
+		<reg name="X16" Address="0x4220" y="3874" x="1023" pid="16" pid2=""/>
+	
+		<reg name="X17" Address="0x4221" y="3893" x="1151" pid="17" pid2="17"/>
+		<reg name="X17" Address="0x4222" y="3893" x="1151" pid="17" pid2=""/>
+	
+		<reg name="X18" Address="0x4223" y="3909" x="1279" pid="18" pid2="18"/>
+		<reg name="X18" Address="0x4224" y="3909" x="1279" pid="18" pid2=""/>
+	
+		<reg name="X19" Address="0x4225" y="3924" x="1407" pid="19" pid2="19"/>
+		<reg name="X19" Address="0x4226" y="3924" x="1407" pid="19" pid2=""/>
+	
+		<reg name="X20" Address="0x4227" y="3938" x="1535" pid="20" pid2="20"/>
+		<reg name="X20" Address="0x4228" y="3938" x="1535" pid="20" pid2=""/>
+	
+		<reg name="X21" Address="0x4229" y="3950" x="1663" pid="21" pid2="21"/>
+		<reg name="X21" Address="0x422A" y="3950" x="1663" pid="21" pid2=""/>
+	
+		<reg name="X22" Address="0x422B" y="3962" x="1791" pid="22" pid2="22"/>
+		<reg name="X22" Address="0x422C" y="3962" x="1791" pid="22" pid2=""/>
+	
+		<reg name="X23" Address="0x422D" y="3973" x="1919" pid="23" pid2="23"/>
+		<reg name="X23" Address="0x422E" y="3973" x="1919" pid="23" pid2=""/>
+	
+		<reg name="X24" Address="0x422F" y="3983" x="2047" pid="24" pid2="24"/>
+		<reg name="X24" Address="0x4230" y="3983" x="2047" pid="24" pid2=""/>
+	
+		<reg name="X25" Address="0x4231" y="4002" x="2303" pid="25" pid2="25"/>
+		<reg name="X25" Address="0x4232" y="4002" x="2303" pid="25" pid2=""/>
+	
+		<reg name="X26" Address="0x4233" y="4019" x="2559" pid="26" pid2="26"/>
+		<reg name="X26" Address="0x4234" y="4019" x="2559" pid="26" pid2=""/>
+	
+		<reg name="X27" Address="0x4235" y="4034" x="2815" pid="27" pid2="27"/>
+		<reg name="X27" Address="0x4236" y="4034" x="2815" pid="27" pid2=""/>
+	
+		<reg name="X28" Address="0x4237" y="4049" x="3071" pid="28" pid2="28"/>
+		<reg name="X28" Address="0x4238" y="4049" x="3071" pid="28" pid2=""/>
+	
+		<reg name="X29" Address="0x4239" y="4074" x="3583" pid="29" pid2="29"/>
+		<reg name="X29" Address="0x423A" y="4074" x="3583" pid="29" pid2=""/>
+	</Module>
+
+
+</chip>

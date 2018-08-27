@@ -1,0 +1,1144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<chip Name="PIS1702">
+	<Module>
+		<reg reg_name="DEVICE_ID" Address="0x3000"  data_b="*" data_h="0x04" Bit="[15:8]" Description="芯片器件型号"  Mem_Type="RO" CID="01"/>
+		<reg reg_name="DEVICE_ID" Address="0x3001"  data_b="*" data_h="0x22" Bit="[7:0]" Description="芯片器件型号"  Mem_Type="RO" CID=""/>
+		<reg reg_name="REV_NUM" Address="0x3002"  data_b="*" data_h="0x01" Bit="[7:0]" Description="芯片版本号"  Mem_Type="RO" CID="1"/>
+		<reg reg_name="BROADCAST_EN" Address="0x3003"  data_b="0" data_h="0x00" Bit="[0]" Description="广播模式使能能信号"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="BROADCAST_ID1" Address="0x3004"  data_b="*" data_h="0x00" Bit="[7:0]" Description="广播模式的第一个字节"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="BROADCAST_ID2" Address="0x3005"  data_b="*" data_h="0x04" Bit="[7:0]" Description="广播模式的第二个字节"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TM" Address="0x3006"  data_b="0" data_h="0x00" Bit="[2]" Description="测试模式。0：正常工作模式，1：开启测试,0x4FXX-0X50XX"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="PWDN_SOFT" Address="0x3006"  data_b="0" data_h="0x00" Bit="[1]" Description="系统休眠。0：正常工作模式，1：系统休眠"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="RESET_SOFT" Address="0x3006"  data_b="0" data_h="0x00" Bit="[0]" Description="系统复位。0：正常工作模式，1：系统复位"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="MIRROR_V" Address="0x3007"  data_b="0" data_h="0x00" Bit="[1]" Description="垂直镜像。0：从下到上，1：从上到下"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="MIRROR_H" Address="0x3007"  data_b="0" data_h="0x00" Bit="[0]" Description="水平镜像。0：从左到右，1：从右到左"  Mem_Type="RW" CID="2"/>
+        <reg reg_name="IE_DATA" Address="0x3008"  data_b="0" data_h="0x10" Bit="[5]" Description="DATA输入使能。1：输入，0：高阻"  Mem_Type="RW" CID="6"/>
+        <reg reg_name="OE_SYNC" Address="0x3008"  data_b="1" data_h="0x10" Bit="[4]" Description="芯片同步工作输出端口。0：输出，1：高阻"  Mem_Type="RW" CID="6"/>
+        <reg reg_name="OE_VSYNC" Address="0x3008"  data_b="0" data_h="0x10" Bit="[3]" Description="VSYNC输出使能。0：输出，1：高阻"  Mem_Type="RW" CID="6"/>
+        <reg reg_name="OE_HSYNC" Address="0x3008"  data_b="0" data_h="0x10" Bit="[2]" Description="HSYNC输出使能。0：输出，1：高阻"  Mem_Type="RW" CID="6"/>
+        <reg reg_name="OE_PCLK" Address="0x3008"  data_b="0" data_h="0x10" Bit="[1]" Description="PCLK输出使能。0：输出，1：高阻"  Mem_Type="RW" CID="6"/>
+        <reg reg_name="OE_DATA" Address="0x3008"  data_b="0" data_h="0x10" Bit="[0]" Description="DATA输出使能。0：输出，1：高阻"  Mem_Type="RW" CID="6"/>
+        <reg reg_name="ODC_EEP" Address="0x3009"  data_b="0" data_h="0x00" Bit="[4]" Description="EEP IO驱动配置位。0：LOW DRIVE MODE,1：HIGH DRIVE MODE"  Mem_Type="RW" CID="5"/>
+        <reg reg_name="ODC_LED" Address="0x3009"  data_b="0" data_h="0x00" Bit="[3]" Description="LED IO驱动配置位。0：LOW DRIVE MODE,1：HIGH DRIVE MODE"  Mem_Type="RW" CID="5"/>
+        <reg reg_name="ODC_MIRS" Address="0x3009"  data_b="0" data_h="0x00" Bit="[2]" Description="MISR IO驱动配置位。0：LOW DRIVE MODE,1：HIGH DRIVE MODE"  Mem_Type="RW" CID="5"/>
+        <reg reg_name="ODC_SYNC_O" Address="0x3009"  data_b="0" data_h="0x00" Bit="[1]" Description="外同步IO驱动配置位。0：LOW DRIVE MODE,1：HIGH DRIVE MODE"  Mem_Type="RW" CID="5"/>
+        <reg reg_name="ODC_DVP" Address="0x3009"  data_b="0" data_h="0x00" Bit="[0]" Description="数字IO驱动配置位。0：LOW DRIVE MODE,1：HIGH DRIVE MODE"  Mem_Type="RW" CID="5"/>
+        <reg reg_name="AD_BIT" Address="0x300A"  data_b="0" data_h="0x00" Bit="[2]" Description="ADC位数选择。1'b0:12bit；1'b1:10bit"  Mem_Type="RW" CID="2"/>
+        <reg reg_name="DOUT_MOD" Address="0x300A"  data_b="00" data_h="0x00" Bit="[1:0]" Description="输出模式。00: CVBS，01：DVP，10/11：CVBS和DVP均输出"  Mem_Type="RW" CID="2"/>
+        <reg reg_name="EXTSYNC" Address="0x300B"  data_b="0" data_h="0x00" Bit="[3]" Description="外同步使能。1:Enable 0:Disable"  Mem_Type="RW" CID="3"/>
+        <reg reg_name="EXTSYNC_MOD" Address="0x300B"  data_b="0" data_h="0x00" Bit="[2]" Description="外同步模式。1:Master 0:Slave"  Mem_Type="RW" CID="3"/>
+        <reg reg_name="EXTSYNC_DELAY" Address="0x300B"  data_b="00" data_h="0x00" Bit="[1:0]" Description="外同步帧延时00: no delay；01: 1 PCLK delay；10: 2 PCLK delay；11: 3 PCLK delay" Mem_Type="RW" CID="3"/>
+        <reg reg_name="DS_SEL" Address="0x300C"  data_b="1" data_h="0x01" Bit="[0]" Description="1'b1：动态同步,1'b0：静态保持"  Mem_Type="RW" CID="1"/>
+        <reg reg_name="ISP_EN" Address="0x300D"  data_b="0" data_h="0x00" Bit="[0]" Description="ISP顶层使能。1：使能有效，0：ISP:使能无效"  Mem_Type="RW" CID="1"/>
+        <reg reg_name="DAYNIGHT_SWITCH" Address="0x300E"  data_b="0" data_h="0x00" Bit="[0]" Description="1：黑白模式，0：彩色模式"  Mem_Type="RO" CID="1"/>
+        <reg reg_name="DS_STATUS" Address="0x300F"  data_b="0" data_h="0x00" Bit="[0]" Description="配置状态。1：正在配置，0：配置完成"  Mem_Type="RO" CID="1"/>
+	
+
+
+
+		<reg reg_name="AEC_EXPT" Address="0x3100"  data_b="*" data_h="0x00" Bit="[15:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_EXPT" Address="0x3101"  data_b="*" data_h="0x01" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_GAIN_PGA" Address="0x3102"  data_b="*" data_h="0x00" Bit="[2:0]" Description="外部方式配置PGA增益，AEC无效时有效"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_GAIN_ADC" Address="0x3103"  data_b="*" data_h="0x00" Bit="[6:0]" Description="外部方式配置ADC增益，AEC无效时有效"  Mem_Type="RW" CID="1"/>
+	
+
+
+
+		<reg reg_name="FRAME_H" Address="0x3200"  data_b="*" data_h="0x02" Bit="[15:8]" Description="画幅高度。NTSC：525；PAL：625。"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="FRAME_H" Address="0x3201"  data_b="*" data_h="0x0D" Bit="[7:0]" Description="画幅高度。NTSC：525；PAL：625。"  Mem_Type="RW" CID=""/>
+		<reg reg_name="FRAME_W" Address="0x3202"  data_b="*" data_h="0x03" Bit="[15:8]" Description="画幅宽度。NTSC：858；PAL：864。"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="FRAME_W" Address="0x3203"  data_b="*" data_h="0x5A" Bit="[7:0]" Description="画幅宽度。NTSC：858；PAL：864。"  Mem_Type="RW" CID=""/>
+		<reg reg_name="FRAME_H_ST" Address="0x3204"  data_b="*" data_h="0x00" Bit="[9:8]" Description="画幅ACTIVE区域行起始地址。NTSC：44；PAL：0。"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="FRAME_H_ST" Address="0x3205"  data_b="*" data_h="0x2C" Bit="[7:0]" Description="画幅ACTIVE区域行起始地址。NTSC：44；PAL：0。"  Mem_Type="RW" CID=""/>
+		<reg reg_name="FRAME_H_END" Address="0x3206"  data_b="*" data_h="0x02" Bit="[9:8]" Description="画幅ACTIVE区域行截止地址。NTSC：538；PAL：583。"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="FRAME_H_END" Address="0x3207"  data_b="*" data_h="0x1A" Bit="[7:0]" Description="画幅ACTIVE区域行截止地址。NTSC：538；PAL：583。"  Mem_Type="RW" CID=""/>
+        <reg reg_name="FRAME_H_ST" Address="0x3208"  data_b="*" data_h="0x00" Bit="[9:8]" Description="画幅ACTIVE区域行起始地址。NTSC：44；PAL：0。"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="FRAME_H_ST" Address="0x3209"  data_b="*" data_h="0x00" Bit="[7:0]" Description="画幅ACTIVE区域行起始地址。NTSC：44；PAL：0。"  Mem_Type="RW" CID=""/>
+		<reg reg_name="FRAME_H_END" Address="0x320A"  data_b="*" data_h="0x02" Bit="[9:8]" Description="画幅ACTIVE区域列起始地址。NTSC：0；PAL：0。"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="FRAME_H_END" Address="0x320B"  data_b="*" data_h="0xD7" Bit="[7:0]" Description="画幅ACTIVE区域列起始地址。NTSC：727；PAL：727。"  Mem_Type="RW" CID=""/>
+	
+
+
+
+		<reg reg_name="PLL_NRSET" Address="0x3300"  data_b="1" data_h="0x01" Bit="[0]" Description="PLL复位信号"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="NDIV_PLL" Address="0x3301"  data_b="*" data_h="0x24" Bit="[5:0]" Description="倍频系数。范围：26-54"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PLL_PDIV" Address="0x3302"  data_b="1" data_h="0x01" Bit="[0]" Description="分频系数。0：1倍，1：2倍"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="FCLK_DIV" Address="0x3303"  data_b="*" data_h="0x00" Bit="[24]" Description="分频系数，从27MHz分频得到CLK_FADC@1Khz，默认值27000"  Mem_Type="RW" CID="04"/>
+		<reg reg_name="FCLK_DIV" Address="0x3304"  data_b="*" data_h="0x00" Bit="[23:16]" Description="分频系数，从27MHz分频得到CLK_FADC@1Khz，默认值27000"  Mem_Type="RW" CID="04"/>
+		<reg reg_name="FCLK_DIV" Address="0x3305"  data_b="*" data_h="0x69" Bit="[15:8]" Description="分频系数，从27MHz分频得到CLK_FADC@1Khz，默认值27000"  Mem_Type="RW" CID="04"/>
+		<reg reg_name="FCLK_DIV" Address="0x3306"  data_b="*" data_h="0x78" Bit="[7:0]" Description="分频系数，从27MHz分频得到CLK_FADC@1Khz，默认值27000"  Mem_Type="RW" CID="04"/>
+
+
+
+		<reg reg_name="TPG_GRAYDIRECT" Address="0x3400"  data_b="0" data_h="0x00" Bit="[4]" Description="LADDER_MODE, 1: Up-Down; 0: Left-Right"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="TPG_SATURATION" Address="0x3400"  data_b="0" data_h="0x00" Bit="[3]" Description="COLOR_SATURATION, 1: 75%; 0: 100%"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="TPG_MODE" Address="0x3400"  data_b="00" data_h="0x00" Bit="[2:1]" Description="TPG_MODE, 2 or 3: Inner test; 1: Ladder; 0: ColorBar; "  Mem_Type="RW" CID="4"/>
+		<reg reg_name="TPG_EN" Address="0x3400"  data_b="0" data_h="0x00" Bit="[0]" Description="TPG_EN, 1: Enable; 0: Disabel"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="TPG_GRAYINIT" Address="0x3401"  data_b="*" data_h="0x00" Bit="[11:8]" Description="LADDR_INIT: Initial Value of Ladder"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_GRAYINIT" Address="0x3402"  data_b="*" data_h="0x00" Bit="[7:0]" Description="LADDR_INIT: Initial Value of Ladder"  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_GRAYSTEP" Address="0x3403"  data_b="*" data_h="0x00" Bit="[12:8]" Description="LADDR_STEP: Step of Ladder"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_GRAYSTEP" Address="0x3404"  data_b="*" data_h="0x01" Bit="[7:0]" Description="LADDR_STEP: Step of Ladder"  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_BLCDARK_GR" Address="0x3405"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_BLCDARK_GR" Address="0x3406"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_BLCDARK_R" Address="0x3407"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_BLCDARK_R" Address="0x3408"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_BLCDARK_B" Address="0x3409"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_BLCDARK_B" Address="0x340A"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_BLCDARK_GB" Address="0x340B"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_BLCDARK_GB" Address="0x340C"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_RNCDARK_GR" Address="0x340D"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_RNCDARK_GR" Address="0x340E"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_RNCDARK_R" Address="0x340F"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_RNCDARK_R" Address="0x3410"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_RNCDARK_B" Address="0x3411"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_RNCDARK_B" Address="0x3412"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_RNCDARK_GB" Address="0x3413"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_RNCDARK_GB" Address="0x3414"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_ACTIVE_GR" Address="0x3415"  data_b="*" data_h="0x01" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_ACTIVE_GR" Address="0x3416"  data_b="*" data_h="0xFF" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_ACTIVE_R" Address="0x3417"  data_b="*" data_h="0x01" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_ACTIVE_R" Address="0x3418"  data_b="*" data_h="0xFF" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_ACTIVE_B" Address="0x3419"  data_b="*" data_h="0x01" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_ACTIVE_B" Address="0x341A"  data_b="*" data_h="0xFF" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TPG_ACTIVE_GB" Address="0x341B"  data_b="*" data_h="0x01" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TPG_ACTIVE_GB" Address="0x341C"  data_b="*" data_h="0xFF" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+	
+
+		
+
+		<reg reg_name="BLC_TRIGGER" Address="0x3500"  data_b="11" data_h="0xD3" Bit="[7:6]" Description="2’b00:所有状态下，冻结BLC计算，BLC反馈值保持冻结前一帧结果 2’b01:温度变化触发2’b10:曝光时间触发 2’b11:温度或曝光时间触发"  Mem_Type="RW" CID="6"/>
+		<reg reg_name="BLC_AD" Address="0x3500"  data_b="0" data_h="0xD3" Bit="[5]" Description="1:digital  0:analog"  Mem_Type="RW" CID="6"/>
+		<reg reg_name="BLC_FILTER" Address="0x3500"  data_b="1" data_h="0xD3" Bit="[4]" Description="1: Using Filter 0: no filter"  Mem_Type="RW" CID="6"/>
+		<reg reg_name="BLC_MODE" Address="0x3500"  data_b="00" data_h="0xD3" Bit="[3:2]" Description="00: trigger模式 01: 直接减平均值模式 10:仅负反馈模式 11:手动模式"  Mem_Type="RW" CID="6"/>
+		<reg reg_name="BLC_COMP" Address="0x3500"  data_b="1" data_h="0xD3" Bit="[1]" Description="1: 开启数字补偿 0: 关闭数字补偿"  Mem_Type="RW" CID="6"/>
+		<reg reg_name="BLC_EN" Address="0x3500"  data_b="1" data_h="0xD3" Bit="[0]" Description=" 1: Enable 0: Disable"  Mem_Type="RW" CID="6"/>
+		<reg reg_name="BLC_CH" Address="0x3501"  data_b="*" data_h="0x00" Bit="[0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="BLC_TGT_MAX" Address="0x3502"  data_b="*" data_h="0x03" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="BLC_TGT_MAX" Address="0x3503"  data_b="*" data_h="0xFF" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="BLC_K" Address="0x3504"  data_b="*" data_h="0x08" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="BLC_K" Address="0x3505"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="BLC_DELTA_E" Address="0x3506"  data_b="*" data_h="0x00" Bit="[15:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="BLC_DELTA_E" Address="0x3507"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="BLC_DELTA_T" Address="0x3508"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="BLC_TGT_TH" Address="0x3509"  data_b="*" data_h="0x01" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="BLC_POR_WAIT" Address="0x350A"  data_b="*" data_h="0x01" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="BLC_TGT_WAIT" Address="0x350B"  data_b="*" data_h="0x01" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="BLC_STEP_WAIT" Address="0x350C"  data_b="*" data_h="0x00" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="BLC_STEP" Address="0x350D"  data_b="*" data_h="0x01" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="BLC_MANR" Address="0x350E"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="BLC_MANR" Address="0x350F"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="BLC_MANGR" Address="0x3510"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="BLC_MANGR" Address="0x3511"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="BLC_MANGB" Address="0x3512"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="BLC_MANGB" Address="0x3513"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="BLC_MANB" Address="0x3514"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="BLC_MANB" Address="0x3515"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="BLC_AFD_D" Address="0x3516"  data_b="*" data_h="0x00" Bit="[9:8]" Description=""  Mem_Type="RO" CID="01"/>
+		<reg reg_name="BLC_AFD_D" Address="0x3517"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID=""/>
+		<reg reg_name="BLC_AFD_A" Address="0x3518"  data_b="*" data_h="0x00" Bit="[9:8]" Description=""  Mem_Type="RO" CID="01"/>
+		<reg reg_name="BLC_AFD_A" Address="0x3519"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID=""/>
+		<reg reg_name="BLC_AVG_NOGAIN" Address="0x351A"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RO" CID="01"/>
+		<reg reg_name="BLC_AVG_NOGAIN" Address="0x351B"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID=""/>
+		<reg reg_name="BLC_AVG_GAINR" Address="0x351C"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RO" CID="01"/>
+		<reg reg_name="BLC_AVG_GAINR" Address="0x351D"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID=""/>
+		<reg reg_name="BLC_AVG_GAINGR" Address="0x351E"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RO" CID="01"/>
+		<reg reg_name="BLC_AVG_GAINGR" Address="0x351F"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID=""/>
+		<reg reg_name="BLC_AVG_GAINGB" Address="0x3520"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RO" CID="01"/>
+		<reg reg_name="BLC_AVG_GAINGB" Address="0x3521"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID=""/>
+		<reg reg_name="BLC_AVG_GAINB" Address="0x3522"  data_b="*" data_h="0x00" Bit="[12:8]" Description=""  Mem_Type="RO" CID="01"/>
+		<reg reg_name="BLC_AVG_GAINB" Address="0x3523"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID=""/>
+		<reg reg_name="DOFF_GAIN_LN_EN" Address="0x3600"  data_b="1" data_h="0x03" Bit="[1]" Description="DIGITAL_GAIN使能控制"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="DOFF_EN" Address="0x3600"  data_b="1" data_h="0x03" Bit="[0]" Description="DIGITAL_GAIN使能控制"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="DOFF" Address="0x3601"  data_b="*" data_h="0x00" Bit="[12:8]" Description="DOFF值配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DOFF" Address="0x3602"  data_b="*" data_h="0x00" Bit="[7:0]" Description="DOFF值配置"  Mem_Type="RW" CID=""/>
+		<reg reg_name="DOFF_GAIN_XMIN" Address="0x3603"  data_b="*" data_h="0x00" Bit="[11:8]" Description="增益联动横坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DOFF_GAIN_XMIN" Address="0x3604"  data_b="*" data_h="0x32" Bit="[7:0]" Description="增益联动横坐标配置"  Mem_Type="RW" CID=""/>
+		<reg reg_name="DOFF_GAIN_XMAX" Address="0x3605"  data_b="*" data_h="0x04" Bit="[11:8]" Description="增益联动横坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DOFF_GAIN_XMAX" Address="0x3606"  data_b="*" data_h="0x20" Bit="[7:0]" Description="增益联动横坐标配置"  Mem_Type="RW" CID=""/>
+		<reg reg_name="DOFF_GAIN_YMIN" Address="0x3607"  data_b="*" data_h="0x00" Bit="[13:8]" Description="增益联动纵坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DOFF_GAIN_YMIN" Address="0x3608"  data_b="*" data_h="0x80" Bit="[7:0]" Description="增益联动纵坐标配置"  Mem_Type="RW" CID=""/>
+		<reg reg_name="DOFF_GAIN_YMAX" Address="0x3609"  data_b="*" data_h="0x00" Bit="[13:8]" Description="增益联动纵坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DOFF_GAIN_YMAX" Address="0x360A"  data_b="*" data_h="0x80" Bit="[7:0]" Description="增益联动纵坐标配置"  Mem_Type="RW" CID=""/>
+	
+
+		
+
+		<reg reg_name="RNC_MODE" Address="0x3700"  data_b="1" data_h="0x08" Bit="[3]" Description="1:插值模式 0：均值模式"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="RNC_LNUM" Address="0x3700"  data_b="0" data_h="0x08" Bit="[2]" Description="Left DARK 0:all  1:16"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="RNC_RNUM" Address="0x3700"  data_b="0" data_h="0x08" Bit="[1]" Description="Right DARK 0:all 1:16"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="DRNC_EN" Address="0x3700"  data_b="0" data_h="0x08" Bit="[0]" Description=""  Mem_Type="RW" CID="4"/>
+		<reg reg_name="RNC_LST" Address="0x3701"  data_b="*" data_h="0x00" Bit="[4:0]" Description="Left DARK 起始地址 range 0~11"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="RNC_RST" Address="0x3702"  data_b="*" data_h="0x00" Bit="[4:0]" Description="Right DARK 起始地址 range 0~11"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="RNC_USH" Address="0x3703"  data_b="*" data_h="0x0F" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RNC_USH" Address="0x3704"  data_b="*" data_h="0xFF" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="RNC_DSH" Address="0x3705"  data_b="*" data_h="0x10" Bit="[12:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RNC_DSH" Address="0x3706"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+	
+
+
+
+		<reg reg_name="LSC_EN" Address="0x3800"  data_b="*" data_h="0x01" Bit="[0]" Description="LSC使能控制"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="LSC_CENROW" Address="0x3801"  data_b="*" data_h="0x01" Bit="[8]" Description="LSC 中心点横坐标"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="LSC_CENROW" Address="0x3802"  data_b="*" data_h="0x23" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="LSC_CENCOL" Address="0x3803"  data_b="*" data_h="0x01" Bit="[8]" Description="LSC 中心点纵坐标"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="LSC_CENCOL" Address="0x3804"  data_b="*" data_h="0x6B" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="LSC_COMCOEF" Address="0x3805"  data_b="*" data_h="0x14" Bit="[7:0]" Description="LSC 补偿系数"  Mem_Type="RW" CID="1"/>
+	
+
+
+
+		<reg reg_name="DPC_EN" Address="0x3900"  data_b="1" data_h="0x07" Bit="[2]" Description=""  Mem_Type="RW" CID="3"/>
+		<reg reg_name="DPC_GAIN_COLOR_EN" Address="0x3900"  data_b="1" data_h="0x07" Bit="[1]" Description=""  Mem_Type="RW" CID="3"/>
+		<reg reg_name="DPC_GAIN_BW_EN" Address="0x3900"  data_b="1" data_h="0x07" Bit="[0]" Description=""  Mem_Type="RW" CID="3"/>
+		<reg reg_name="DPC_T0_COLOR" Address="0x3901"  data_b="*" data_h="0x00" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DPC_T0_COLOR" Address="0x3902"  data_b="*" data_h="0x32" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DPC_T0_BW" Address="0x3903"  data_b="*" data_h="0x00" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DPC_T0_BW" Address="0x3904"  data_b="*" data_h="0x32" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DPC_COLOR_XMIN" Address="0x3905"  data_b="*" data_h="0x00" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DPC_COLOR_XMIN" Address="0x3906"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DPC_COLOR_YMIN" Address="0x3907"  data_b="*" data_h="0x00" Bit="[13:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DPC_COLOR_YMIN" Address="0x3908"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DPC_COLOR_XMAX" Address="0x3909"  data_b="*" data_h="0x04" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DPC_COLOR_XMAX" Address="0x390A"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DPC_COLOR_YMAX" Address="0x390B"  data_b="*" data_h="0x04" Bit="[13:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DPC_COLOR_YMAX" Address="0x390C"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DPC_BW_XMIN" Address="0x390D"  data_b="*" data_h="0x00" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DPC_BW_XMIN" Address="0x390E"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DPC_BW_YMIN" Address="0x390F"  data_b="*" data_h="0x00" Bit="[13:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DPC_BW_YMIN" Address="0x3910"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DPC_BW_XMAX" Address="0x3911"  data_b="*" data_h="0x04" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DPC_BW_XMAX" Address="0x3912"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DPC_BW_YMAX" Address="0x3913"  data_b="*" data_h="0x04" Bit="[13:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DPC_BW_YMAX" Address="0x3914"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+	
+
+
+
+		<reg reg_name="RAW_DENOISE_EDIG" Address="0x3A00"  data_b="0" data_h="0x07" Bit="[3]" Description=""  Mem_Type="RW" CID="4"/>
+		<reg reg_name="RAW_DENOISE_GAIN_LNBW_EN" Address="0x3A00"  data_b="1" data_h="0x07" Bit="[2]" Description=""  Mem_Type="RW" CID="4"/>
+		<reg reg_name="RAW_DENOISE_GAIN_LNCOLOR_EN" Address="0x3A00"  data_b="1" data_h="0x07" Bit="[1]" Description="彩色模式，增益联动使能。1'b0:使能无效，1'b1:使能有效"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="RAW_DENOISE_EN" Address="0x3A00"  data_b="1" data_h="0x07" Bit="[0]" Description="RAW_DENOISE模块使能。1'b0:使能无效，1'b1:使能有效"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="RAW_DENOISE_TH_COLOR" Address="0x3A03"  data_b="*" data_h="0x04" Bit="[14:8]" Description="彩色模式下，配置边缘检测阈值，扩大8192倍"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RAW_DENOISE_TH_COLOR" Address="0x3A04"  data_b="*" data_h="0x4C" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="RAW_DENOISE_GAIN_XMIN_COLOR" Address="0x3A0D"  data_b="*" data_h="0x00" Bit="[11:8]" Description="彩色模式下，横坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RAW_DENOISE_GAIN_XMIN_COLOR" Address="0x3A0E"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="RAW_DENOISE_GAIN_XMAX_COLOR" Address="0x3A0F"  data_b="*" data_h="0x04" Bit="[11:8]" Description="彩色模式下，横坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RAW_DENOISE_GAIN_XMAX_COLOR" Address="0x3A10"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="RAW_DENOISE_GAIN_YMIN_COLOR" Address="0x3A11"  data_b="*" data_h="0x00" Bit="[13:8]" Description="彩色模式下，纵坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RAW_DENOISE_GAIN_YMIN_COLOR" Address="0x3A12"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="RAW_DENOISE_GAIN_YMAX_COLOR" Address="0x3A13"  data_b="*" data_h="0x00" Bit="[13:8]" Description="彩色模式下，纵坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RAW_DENOISE_GAIN_YMAX_COLOR" Address="0x3A14"  data_b="*" data_h="0x6A" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+	
+
+
+
+		<reg reg_name="AEC_EN" Address="0x3B00"  data_b="*" data_h="0x01" Bit="[0]" Description="AEC模块使能信号。1：使能有效，0：使能无效"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN_W_ST" Address="0x3B01"  data_b="*" data_h="0x00" Bit="[11:8]" Description="均值统计第一个窗口列起始坐标"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_WIN_W_ST" Address="0x3B02"  data_b="*" data_h="0x50" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_WIN_WIDTH" Address="0x3B03"  data_b="*" data_h="0x07" Bit="[3:0]" Description="均值统计窗口宽度，实际是2^AEC_WIN_WIDTH"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN_H_ST" Address="0x3B04"  data_b="*" data_h="0x00" Bit="[11:8]" Description="均值统计第一个窗口行起始坐标"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_WIN_H_ST" Address="0x3B05"  data_b="*" data_h="0x28" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_WIN_HEIGHT" Address="0x3B06"  data_b="*" data_h="0x06" Bit="[3:0]" Description="均值统计窗口高度，实际是2^AEC_WIN_HEIGHT"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN1_WEIGHT" Address="0x3B07"  data_b="*" data_h="0x10" Bit="[5:0]" Description="均值方式第[1..16]个窗口的权重。"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN2_WEIGHT" Address="0x3B08"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN3_WEIGHT" Address="0x3B09"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN4_WEIGHT" Address="0x3B0A"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN5_WEIGHT" Address="0x3B0B"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN6_WEIGHT" Address="0x3B0C"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN7_WEIGHT" Address="0x3B0D"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN8_WEIGHT" Address="0x3B0E"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN9_WEIGHT" Address="0x3B0F"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN10_WEIGHT" Address="0x3B10"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN11_WEIGHT" Address="0x3B11"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN12WEIGHT" Address="0x3B12"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN13_WEIGHT" Address="0x3B13"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN14_WEIGHT" Address="0x3B14"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN15_WEIGHT" Address="0x3B15"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_WIN16_WEIGHT" Address="0x3B16"  data_b="*" data_h="0x10" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_YREF_MIN" Address="0x3B17"  data_b="*" data_h="0x01" Bit="[11:8]" Description="最小目标亮度"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_YREF_MIN" Address="0x3B18"  data_b="*" data_h="0x5E" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_YREF_MAX" Address="0x3B19"  data_b="*" data_h="0x01" Bit="[11:8]" Description="最大目标亮度"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_YREF_MAX" Address="0x3B1A"  data_b="*" data_h="0xF4" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+
+
+		<reg reg_name="AEC_AYW_GR_MAX" Address="0x3B1B"  data_b="*" data_h="0x00" Bit="[23:16]" Description="AYW/GR阈值，真实阈值=AYWE_GR_MAX/4096"  Mem_Type="RW" CID="03"/>
+		<reg reg_name="AEC_AYW_GR_MAX" Address="0x3B1C"  data_b="*" data_h="0x00" Bit="[15:8]" Description="AYW/GR阈值，真实阈值=AYWE_GR_MAX/4096"  Mem_Type="RW" CID="03"/>
+		<reg reg_name="AEC_AYW_GR_MAX" Address="0x3B1D"  data_b="*" data_h="0xC8" Bit="[7:0]" Description="AYW/GR阈值，真实阈值=AYWE_GR_MAX/4096"  Mem_Type="RW" CID="03"/>
+
+		<reg reg_name="AEC_SKIP_FRAME" Address="0x3B1E"  data_b="*" data_h="0x0E" Bit="[3:0]" Description="两次调整间隔帧数"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_ADJ_RANGE_A" Address="0x3B1F"  data_b="*" data_h="0x00" Bit="[11:8]" Description="调整阈值A"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_ADJ_RANGE_A" Address="0x3B20"  data_b="*" data_h="0x64" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_ADJ_RANGE_B" Address="0x3B21"  data_b="*" data_h="0x00" Bit="[11:8]" Description="调整阈值B"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_ADJ_RANGE_B" Address="0x3B22"  data_b="*" data_h="0xC8" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_ADJ_RANGE_C" Address="0x3B23"  data_b="*" data_h="0x01" Bit="[11:8]" Description="调整阈值C"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_ADJ_RANGE_C" Address="0x3B24"  data_b="*" data_h="0xF4" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_EXPT_MAX" Address="0x3B25"  data_b="*" data_h="0x04" Bit="[15:8]" Description="曝光时间上限"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_EXPT_MAX" Address="0x3B26"  data_b="*" data_h="0x64" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_EXPT_STEP_MODE" Address="0x3B27"  data_b="*" data_h="0x00" Bit="[0]" Description="曝光步长模式"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_EXPT_STEP_MAX" Address="0x3B28"  data_b="*" data_h="0x00" Bit="[15:8]" Description="曝光步长的最大值"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_EXPT_STEP_MAX" Address="0x3B29"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_EXPT_RATE" Address="0x3B2A"  data_b="*" data_h="0x10" Bit="[7:0]" Description="曝光速率因子（每次调整图像亮度变化不超过当前亮度的1/EXPT_RATE）"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_EXPT_RATE_EN" Address="0x3B2B" data_b="1" data_h="0x01" Bit="[0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_EXPT_RATE_TH" Address="0x3B2C" data_b="*" data_h="0x03" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_EXPT_RATE_TH" Address="0x3B2D" data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_EXPT_LE" Address="0x3B2E" data_b="*" data_h="0x00" Bit="[11:8]" Description="固定步长：曝光时间小步长的行数  自适应步长：曝光时间小步长对应的1/EXPT_RATE的倍数"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_EXPT_LE" Address="0x3B2F" data_b="*" data_h="0x01" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_EXPT_HE" Address="0x3B30" data_b="*" data_h="0x00" Bit="[11:8]" Description="固定步长：曝光时间大步长的行数  自适应步长：曝光时间大步长对应的1/EXPT_RATE的倍数"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_EXPT_HE" Address="0x3B31" data_b="*" data_h="0x10" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_GAIN_LG" Address="0x3B32" data_b="*" data_h="0x00" Bit="[9:8]" Description="增益大步长对应的增益调整单元数"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_GAIN_LG" Address="0x3B33" data_b="*" data_h="0x01" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_GAIN_HG" Address="0x3B34" data_b="*" data_h="0x00" Bit="[9:8]" Description="增益小步长对应的增益调整单元数"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_GAIN_HG" Address="0x3B35" data_b="*" data_h="0x08" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_GAIN_UNIT" Address="0x3B36" data_b="*" data_h="0x00" Bit="[9:8]" Description="增益调整单元，真实单元=GAIN_UNIT/64"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AEC_GAIN_UNIT" Address="0x3B37" data_b="*" data_h="0x02" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AEC_PGA_MAX" Address="0x3B38" data_b="*" data_h="0x03" Bit="[2:0]" Description="pga调整上限，初始值对应8倍增益"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AEC_ADC_MAX" Address="0x3B39" data_b="*" data_h="0x7F" Bit="[6:0]" Description="adc调整上限，初始值对应8 * (1+31/32)倍增益"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="GAIN_PGA" Address="0x3B3A" data_b="*" data_h="0x00" Bit="[2:0]" Description="AEC计算后生成的新的PGA增益值"  Mem_Type="RO" CID="1"/>
+		<reg reg_name="GAIN_ADC" Address="0x3B3B" data_b="*" data_h="0x00" Bit="[6:0]" Description="AEC计算后生成的新的ADC增益值"  Mem_Type="RO" CID="1"/>
+		<reg reg_name="EXP" Address="0x3B3C" data_b="*" data_h="0x00" Bit="[15:8]" Description="AEC计算后生成的新的曝光值"  Mem_Type="RO" CID="01"/>
+		<reg reg_name="EXP" Address="0x3B3D" data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID=""/>
+		<reg reg_name="WEIGHT_AVG" Address="0x3B3E" data_b="*" data_h="0x00" Bit="[11:8]" Description="统计均值输出"  Mem_Type="RO" CID="01"/>
+		<reg reg_name="WEIGHT_AVG" Address="0x3B3F" data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID=""/>
+	
+
+
+
+		<reg reg_name="BWCTRL_MODE" Address="0x3C00"  data_b="0" data_h="0x00" Bit="[1]" Description="the color control mode of outputed video 0: enable auto control 1: disable auto contorl"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="BW_STATE" Address="0x3C00"  data_b="0" data_h="0x00" Bit="[0]" Description="manually operation when disabled auto control 0: chomatic 1: monochromatic"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="BWCTRL_SOURCE" Address="0x3C01"  data_b="0" data_h="0x00" Bit="[0]" Description="auto control with: 2'b00: CDS 2'b01: ISP 2'b10: CDS/ISP 2'b11: None"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="LEDCTRL_EN" Address="0x3C02"  data_b="0" data_h="0x00" Bit="[2]" Description="the LED control mode 0: disable auto control 1: enable auto contorl"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="LEDCTRL_MANUAL" Address="0x3C02"  data_b="0" data_h="0x00" Bit="[1]" Description="manually operation when disabled auto control 0: disable 1: enable"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="LEDCTRL_POLARITY" Address="0x3C02"  data_b="0" data_h="0x00" Bit="[0]" Description="the polarity of outputed LED signal 0: normal(high level) 1: inverted the normal level (low level)"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="MIRS_EN" Address="0x3C03"  data_b="0" data_h="0x04" Bit="[3]" Description="the IR-Cut control mode 0: disable auto control 1: enable auto contorl"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="MIRS_MANUAL_EN" Address="0x3C03"  data_b="1" data_h="0x04" Bit="[2]" Description="manually function is :0: disable 1: enable, IR_CUT function is controld by MIRS_MANUAL"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="MIRS_MANUAL" Address="0x3C03"  data_b="0" data_h="0x04" Bit="[1]" Description="manually operation when disabled auto control 0: IR_CUT function is OFF 1: IR_CUT function if ON"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="MIRS_POLARITY" Address="0x3C03"  data_b="0" data_h="0x04" Bit="[0]" Description="the polarity of outputed MIRS signal 0: normal(high pulse) 1: inverted the normal level (low pulse)"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="IR_EXP_TH1" Address="0x3C04"  data_b="*" data_h="0x02" Bit="[15:8]" Description="the limuinance is dark when the exposure time larger than this value"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="IR_EXP_TH1" Address="0x3C05"  data_b="*" data_h="0x0C" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="IR_EXP_TH2" Address="0x3C06"  data_b="*" data_h="0x01" Bit="[15:8]" Description="the limuinance is brightness when the exposure time less than this value"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="IR_EXP_TH2" Address="0x3C07"  data_b="*" data_h="0x06" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="IR_TOTAL_GAIN_TH1" Address="0x3C08"  data_b="*" data_h="0x00" Bit="[15:8]" Description="the limuinance is dark when the total gain(gain_adc * gain_pga) larger than this value"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="IR_TOTAL_GAIN_TH1" Address="0x3C09"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="IR_TOTAL_GAIN_TH2" Address="0x3C0A"  data_b="*" data_h="0x00" Bit="[15:8]" Description="the limuinance is brightness when the total gain(gain_adc * gain_pga) less than this value"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="IR_TOTAL_GAIN_TH2" Address="0x3C0B"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="IR_CDS_LVTH1" Address="0x3C0C"  data_b="*" data_h="0x00" Bit="[7:0]" Description="the limuiance is dark when the data of CDS is less than this value"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="IR_CDS_LVTH2" Address="0x3C0D"  data_b="*" data_h="0x0A" Bit="[7:0]" Description="the limuiance is brightness when the data of CDS is larger than this value"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="LED_FRAME" Address="0x3C0E"  data_b="*" data_h="0x80" Bit="[7:0]" Description="the time that a limulance level should be stability, the step is 10ms@27MHz"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="MIRS_PW" Address="0x3C0F"  data_b="*" data_h="0x64" Bit="[7:0]" Description="the width of MIRS pulse, the step is 10ms@27MHz"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="CDS_DATA" Address="0x3C10"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID="1"/>	
+	
+
+
+
+		<reg reg_name="DGAIN_EN" Address="0x3D00"  data_b="*" data_h="0x01" Bit="[0]" Description="DIGITAL_GAIN使能控制"  Mem_Type="RW" CID="1"/>	
+		<reg reg_name="DGAIN" Address="0x3D01"  data_b="*" data_h="0x00" Bit="[10:8]" Description="数字增益配置：16X，4位整数位，7位小数位"  Mem_Type="RW" CID="01"/>	
+		<reg reg_name="DGAIN" Address="0x3D02"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>	
+	
+
+
+
+		<reg reg_name="DEMOSAIC_COLOR_PAT" Address="0x3E00"  data_b="11" data_h="0x0D" Bit="[3:2]" Description="COLOR_PAT=00,BGGR;COLOR_PAT=01,GBRG;COLOR_PAT=10,RGGB;COLOR_PAT=11,GRBG."  Mem_Type="RW" CID="3"/>
+		<reg reg_name="DEMOSAIC_CTRL_MODE" Address="0x3E00"  data_b="0" data_h="0x0D" Bit="[1]" Description="控制图像color_patter，=0时自动接收芯片MARK_R和MARK_G控制，=1时通过DEMOSAIC_COLOR_PAT配置。"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="DEMOSAIC_EN" Address="0x3E00"  data_b="1" data_h="0x0D" Bit="[0]" Description="模块使能，=1，模块打开,=0,模块关闭"  Mem_Type="RW" CID="3"/>	
+	
+
+
+		<reg reg_name="AWB_EN" Address="0x3F00"  data_b="1" data_h="0x06" Bit="[2]" Description="AWB使能：0-disable;1-enable;"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="AWB_AUTO_EN" Address="0x3F00"  data_b="1" data_h="0x06" Bit="[1]" Description="AWB模式切换：0-算法手动选择；1-算法自动切换；"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="AWB_MAN_SEL" Address="0x3F00"  data_b="0" data_h="0x06" Bit="[0]" Description="AWB手动算法选择：0-CT；1-Gray world；"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="AWB_T_UP" Address="0x3F01"  data_b="*" data_h="0x0E" Bit="[11:8]" Description="AWB统计阈值，上边界"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_T_UP" Address="0x3F02"  data_b="*" data_h="0x60" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_T_DN" Address="0x3F03"  data_b="*" data_h="0x00" Bit="[11:8]" Description="AWB统计阈值，下边界"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_T_DN" Address="0x3F04"  data_b="*" data_h="0xA0" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_WINDOWS_X" Address="0x3F05"  data_b="*" data_h="0x00" Bit="[11:8]" Description="AWB统计窗起点X坐标"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_WINDOWS_X" Address="0x3F06"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_WINDOWS_Y" Address="0x3F07"  data_b="*" data_h="0x00" Bit="[11:8]" Description="AWB统计窗起点Y坐标"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_WINDOWS_Y" Address="0x3F08"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_WINDOWS_L" Address="0x3F09"  data_b="*" data_h="0x00" Bit="[11:8]" Description="AWB统计窗宽度"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_WINDOWS_L" Address="0x3F0A"  data_b="*" data_h="0xB4" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_WINDOWS_H" Address="0x3F0B"  data_b="*" data_h="0x00" Bit="[11:8]" Description="AWB统计窗高度"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_WINDOWS_H" Address="0x3F0C"  data_b="*" data_h="0x78" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_P0_X" Address="0x3F0D"  data_b="*" data_h="0x00" Bit="[11:8]" Description="白点范围，P0点X坐标"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_P0_X" Address="0x3F0E"  data_b="*" data_h="0x76" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_P0_Y" Address="0x3F0F"  data_b="*" data_h="0x09" Bit="[11:8]" Description="白点范围，P0点Y坐标"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_P0_Y" Address="0x3F10"  data_b="*" data_h="0xC4" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_P3_X" Address="0x3F11"  data_b="*" data_h="0x09" Bit="[11:8]" Description="白点范围，P3点X坐标"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_P3_X" Address="0x3F12"  data_b="*" data_h="0xC4" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_P3_Y" Address="0x3F13"  data_b="*" data_h="0x01" Bit="[11:8]" Description="白点范围，P3点Y坐标"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_P3_Y" Address="0x3F14"  data_b="*" data_h="0xA6" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_K12" Address="0x3F15"  data_b="*" data_h="0x0C" Bit="[11:8]" Description="白点范围，P12曲线斜率K12"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_K12" Address="0x3F16"  data_b="*" data_h="0x82" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_B12" Address="0x3F17"  data_b="*" data_h="0x07" Bit="[11:8]" Description="白点范围，P12曲线截距B12"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_B12" Address="0x3F18"  data_b="*" data_h="0x6F" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_K54" Address="0x3F19"  data_b="*" data_h="0x0C" Bit="[11:8]" Description="白点范围，P54曲线斜率K54"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_K54" Address="0x3F1A"  data_b="*" data_h="0x82" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_B54" Address="0x3F1B"  data_b="*" data_h="0x0C" Bit="[11:8]" Description="白点范围，P54曲线截距B54"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_B54" Address="0x3F1C"  data_b="*" data_h="0xE7" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_ZONE_CNT_MIN" Address="0x3F1D"  data_b="*" data_h="0x00" Bit="[15:8]" Description="AWB统计，区域有效阈值"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_ZONE_CNT_MIN" Address="0x3F1E"  data_b="*" data_h="0xC8" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_OVER_FCNT" Address="0x3F1F"  data_b="*" data_h="0x05" Bit="[7:0]" Description="AWB统计，TGT切换帧数"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AWB_TH" Address="0x3F20"  data_b="*" data_h="0x00" Bit="[11:8]" Description="AWB统计，TGT切换阈值"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_TH" Address="0x3F21"  data_b="*" data_h="0xC8" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_GW_RMAX" Address="0x3F22"  data_b="*" data_h="0xF" Bit="[11:8]" Description="AWB统计，GW算法R GAIN最大值"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_GW_RMAX" Address="0x3F23"  data_b="*" data_h="0xFF" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_GW_RMIN" Address="0x3F24"  data_b="*" data_h="0x00" Bit="[11:8]" Description="AWB统计，GW算法R GAIN最小值"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_GW_RMIN" Address="0x3F25"  data_b="*" data_h="0x01" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_GW_BMAX" Address="0x3F26"  data_b="*" data_h="0xF" Bit="[11:8]" Description="AWB统计，GW算法B GAIN最大值"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_GW_BMAX" Address="0x3F27"  data_b="*" data_h="0xFF" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_GW_BMIN" Address="0x3F28"  data_b="*" data_h="0x00" Bit="[11:8]" Description="AWB统计，GW算法B GAIN最小值"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_GW_BMIN" Address="0x3F29"  data_b="*" data_h="0x01" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_AYW_MAX" Address="0x3F2A"  data_b="*" data_h="0xF" Bit="[11:8]" Description="AWB统计，亮度有效上阈值"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_AYW_MAX" Address="0x3F2B"  data_b="*" data_h="0xFF" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_AYW_MIN" Address="0x3F2C"  data_b="*" data_h="0x00" Bit="[11:8]" Description="AWB统计，亮度有效下阈值"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_AYW_MIN" Address="0x3F2D"  data_b="*" data_h="0x01" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_ZONE_SUMCNT_MIN" Address="0x3F2E"  data_b="*" data_h="0x03" Bit="[15:8]" Description="AWB统计有效最少PIXEL数"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWB_ZONE_SUMCNT_MIN" Address="0x3F2F"  data_b="*" data_h="0xE8" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWB_FCNT" Address="0x3F30"  data_b="*" data_h="0x02" Bit="[7:0]" Description="AWB统计，算法切换帧数"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AWBGAIN_EN" Address="0x4000"  data_b="1" data_h="0x02" Bit="[1]" Description="AWB GAIN使能 0 -Disable 1-Enable"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="AWBGAIN_CTRL_MODE" Address="0x4000"  data_b="0" data_h="0x02" Bit="[0]" Description="AWB GAIN模式切换 0 - 自动 1 - 手动"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="AWBGAIN_R" Address="0x4001"  data_b="*" data_h="0x04" Bit="[11:8]" Description="手动AWB RGAIN"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWBGAIN_R" Address="0x4002"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AWBGAIN_B" Address="0x4003"  data_b="*" data_h="0x04" Bit="[11:8]" Description="手动AWB BGAIN"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AWBGAIN_B" Address="0x4004"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+	
+
+
+
+		<reg reg_name="CCM_EN" Address="0x4100"  data_b="1" data_h="0x08" Bit="[3]" Description=""  Mem_Type="RW" CID="3"/>
+		<reg reg_name="CCM_CTRL_MODE" Address="0x4100"  data_b="0" data_h="0x08" Bit="[2]" Description=""  Mem_Type="RW" CID="3"/>
+		<reg reg_name="CCM_MANUAL_OP" Address="0x4100"  data_b="00" data_h="0x08" Bit="[1:0]" Description=""  Mem_Type="RW" CID="3"/>
+		<reg reg_name="CT0_X" Address="0x4101"  data_b="*" data_h="0x03" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT0_X" Address="0x4102"  data_b="*" data_h="0xB0" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT0_CCM00" Address="0x4103"  data_b="*" data_h="0x07" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT0_CCM00" Address="0x4104"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT0_CCM01" Address="0x4105"  data_b="*" data_h="0x7D" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT0_CCM01" Address="0x4106"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT0_CCM02" Address="0x4107"  data_b="*" data_h="0x00" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT0_CCM02" Address="0x4108"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT0_CCM10" Address="0x4109"  data_b="*" data_h="0x7E" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT0_CCM10" Address="0x410A"  data_b="*" data_h="0x66" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT0_CCM11" Address="0x410B"  data_b="*" data_h="0x05" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT0_CCM11" Address="0x410C"  data_b="*" data_h="0x9A" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT0_CCM12" Address="0x410D"  data_b="*" data_h="0x00" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT0_CCM12" Address="0x410E"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT0_CCM20" Address="0x410F"  data_b="*" data_h="0x7F" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT0_CCM20" Address="0x4110"  data_b="*" data_h="0x35" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT0_CCM21" Address="0x4111"  data_b="*" data_h="0x7E" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT0_CCM21" Address="0x4112"  data_b="*" data_h="0x66" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT0_CCM22" Address="0x4113"  data_b="*" data_h="0x06" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT0_CCM22" Address="0x4114"  data_b="*" data_h="0x65" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+
+		<reg reg_name="CT1_X" Address="0x4115"  data_b="*" data_h="0x04" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT1_X" Address="0x4116"  data_b="*" data_h="0x1D" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT1_CCM00" Address="0x4117"  data_b="*" data_h="0x07" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT1_CCM00" Address="0x4118"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT1_CCM01" Address="0x4119"  data_b="*" data_h="0x7D" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT1_CCM01" Address="0x411A"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT1_CCM02" Address="0x411B"  data_b="*" data_h="0x00" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT1_CCM02" Address="0x411C"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT1_CCM10" Address="0x411D"  data_b="*" data_h="0x7E" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT1_CCM10" Address="0x411E"  data_b="*" data_h="0x66" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT1_CCM11" Address="0x411F"  data_b="*" data_h="0x05" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT1_CCM11" Address="0x4120"  data_b="*" data_h="0xEC" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT1_CCM12" Address="0x4121"  data_b="*" data_h="0x7F" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT1_CCM12" Address="0x4122"  data_b="*" data_h="0xAE" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT1_CCM20" Address="0x4123"  data_b="*" data_h="0x7F" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT1_CCM20" Address="0x4124"  data_b="*" data_h="0x9B" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT1_CCM21" Address="0x4125"  data_b="*" data_h="0x7C" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT1_CCM21" Address="0x4126"  data_b="*" data_h="0xCC" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT1_CCM22" Address="0x4127"  data_b="*" data_h="0x07" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT1_CCM22" Address="0x4128"  data_b="*" data_h="0x9A" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+
+		<reg reg_name="CT2_X" Address="0x4129"  data_b="*" data_h="0x05" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT2_X" Address="0x412A"  data_b="*" data_h="0x39" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT2_CCM00" Address="0x412B"  data_b="*" data_h="0x06" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT2_CCM00" Address="0x412C"  data_b="*" data_h="0xCB" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT2_CCM01" Address="0x412D"  data_b="*" data_h="0x7D" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT2_CCM01" Address="0x412E"  data_b="*" data_h="0x35" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT2_CCM02" Address="0x412F"  data_b="*" data_h="0x00" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT2_CCM02" Address="0x4130"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT2_CCM10" Address="0x4131"  data_b="*" data_h="0x7F" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT2_CCM10" Address="0x4132"  data_b="*" data_h="0x35" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT2_CCM11" Address="0x4133"  data_b="*" data_h="0x05" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT2_CCM11" Address="0x4134"  data_b="*" data_h="0x65" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT2_CCM12" Address="0x4135"  data_b="*" data_h="0x7F" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT2_CCM12" Address="0x4136"  data_b="*" data_h="0x66" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT2_CCM20" Address="0x4137"  data_b="*" data_h="0x00" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT2_CCM20" Address="0x4138"  data_b="*" data_h="0xCB" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT2_CCM21" Address="0x4139"  data_b="*" data_h="0x7E" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT2_CCM21" Address="0x413A"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT2_CCM22" Address="0x413B"  data_b="*" data_h="0x05" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT2_CCM22" Address="0x413C"  data_b="*" data_h="0x34" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+
+		<reg reg_name="CT3_X" Address="0x413D"  data_b="*" data_h="0x06" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT3_X" Address="0x413E"  data_b="*" data_h="0x66" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT3_CCM00" Address="0x413F"  data_b="*" data_h="0x06" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT3_CCM00" Address="0x4140"  data_b="*" data_h="0xCB" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT3_CCM01" Address="0x4141"  data_b="*" data_h="0x7D" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT3_CCM01" Address="0x4142"  data_b="*" data_h="0x35" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT3_CCM02" Address="0x4143"  data_b="*" data_h="0x00" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT3_CCM02" Address="0x4144"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT3_CCM10" Address="0x4145"  data_b="*" data_h="0x7F" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT3_CCM10" Address="0x4146"  data_b="*" data_h="0x35" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT3_CCM11" Address="0x4147"  data_b="*" data_h="0x05" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT3_CCM11" Address="0x4148"  data_b="*" data_h="0x65" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT3_CCM12" Address="0x4149"  data_b="*" data_h="0x7F" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT3_CCM12" Address="0x414A"  data_b="*" data_h="0x66" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT3_CCM20" Address="0x414B"  data_b="*" data_h="0x00" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT3_CCM20" Address="0x414C"  data_b="*" data_h="0xCB" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT3_CCM21" Address="0x414D"  data_b="*" data_h="0x7E" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT3_CCM21" Address="0x414E"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CT3_CCM22" Address="0x414F"  data_b="*" data_h="0x05" Bit="[14:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CT3_CCM22" Address="0x4150"  data_b="*" data_h="0x34" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+
+
+
+		<reg reg_name="GAMMA_EN" Address="0x4200"  data_b="*" data_h="0x01" Bit="[0]" Description="GAMMA开关"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="GAMMA_OUTAB1" Address="0x4201"  data_b="*" data_h="0x02" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB1" Address="0x4202"  data_b="*" data_h="0x66" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB2" Address="0x4203"  data_b="*" data_h="0x03" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB2" Address="0x4204"  data_b="*" data_h="0x4D" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB3" Address="0x4205"  data_b="*" data_h="0x03" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB3" Address="0x4206"  data_b="*" data_h="0xF9" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB4" Address="0x4207"  data_b="*" data_h="0x04" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB4" Address="0x4208"  data_b="*" data_h="0x87" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB5" Address="0x4209"  data_b="*" data_h="0x05" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB5" Address="0x420A"  data_b="*" data_h="0x04" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB6" Address="0x420B"  data_b="*" data_h="0x05" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB6" Address="0x420C"  data_b="*" data_h="0x73" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB7" Address="0x420D"  data_b="*" data_h="0x05" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB7" Address="0x420E"  data_b="*" data_h="0xD8" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB8" Address="0x420F"  data_b="*" data_h="0x06" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB8" Address="0x4210"  data_b="*" data_h="0x36" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB9" Address="0x4211"  data_b="*" data_h="0x06" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB9" Address="0x4212"  data_b="*" data_h="0x8E" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB10" Address="0x4213"  data_b="*" data_h="0x06" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB10" Address="0x4214"  data_b="*" data_h="0xE0" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB11" Address="0x4215"  data_b="*" data_h="0x07" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB11" Address="0x4216"  data_b="*" data_h="0x2E" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB12" Address="0x4217"  data_b="*" data_h="0x07" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB12" Address="0x4218"  data_b="*" data_h="0x79" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB13" Address="0x4219"  data_b="*" data_h="0x07" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB13" Address="0x421A"  data_b="*" data_h="0xC0" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB14" Address="0x421B"  data_b="*" data_h="0x08" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB14" Address="0x421C"  data_b="*" data_h="0x04" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB15" Address="0x421D"  data_b="*" data_h="0x08" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB15" Address="0x421E"  data_b="*" data_h="0x45" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB16" Address="0x421F"  data_b="*" data_h="0x08" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB16" Address="0x4220"  data_b="*" data_h="0x84" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB17" Address="0x4221"  data_b="*" data_h="0x08" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB17" Address="0x4222"  data_b="*" data_h="0xFC" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB18" Address="0x4223"  data_b="*" data_h="0x09" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB18" Address="0x4224"  data_b="*" data_h="0x6D" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB19" Address="0x4225"  data_b="*" data_h="0x09" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB19" Address="0x4226"  data_b="*" data_h="0xD8" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB20" Address="0x4227"  data_b="*" data_h="0x0A" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB20" Address="0x4228"  data_b="*" data_h="0x3E" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB21" Address="0x4229"  data_b="*" data_h="0x0A" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB21" Address="0x422A"  data_b="*" data_h="0x9F" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB22" Address="0x422B"  data_b="*" data_h="0x0A" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB22" Address="0x422C"  data_b="*" data_h="0xFC" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB23" Address="0x422D"  data_b="*" data_h="0x0B" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB23" Address="0x422E"  data_b="*" data_h="0x56" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+        <reg reg_name="GAMMA_OUTAB24" Address="0x422F"  data_b="*" data_h="0x0B" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB24" Address="0x4230"  data_b="*" data_h="0xAC" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB25" Address="0x4231"  data_b="*" data_h="0x0C" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB25" Address="0x4232"  data_b="*" data_h="0x51" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB26" Address="0x4233"  data_b="*" data_h="0x0C" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB26" Address="0x4234"  data_b="*" data_h="0xEC" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB27" Address="0x4235"  data_b="*" data_h="0x0D" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB27" Address="0x4236"  data_b="*" data_h="0x7E" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB28" Address="0x4237"  data_b="*" data_h="0x0E" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB28" Address="0x4238"  data_b="*" data_h="0x09" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="GAMMA_OUTAB29" Address="0x4239"  data_b="*" data_h="0x0F" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="GAMMA_OUTAB29" Address="0x423A"  data_b="*" data_h="0x0E" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+
+
+		<reg reg_name="TMP_EN" Address="0x4300"  data_b="1" data_h="0x07" Bit="[2]" Description="模块使能"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="TMP_COLOR_EN" Address="0x4300"  data_b="1" data_h="0x07" Bit="[2]" Description="增益联动彩色模式使能"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="TMP_BW_EN" Address="0x4300"  data_b="1" data_h="0x07" Bit="[2]" Description="增益联动黑白模式使能"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="TMP_COLOR_YMIN" Address="0x4301"  data_b="*" data_h="0x00" Bit="[13:8]" Description="增益联动彩色模式下K1"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TMP_COLOR_YMIN" Address="0x4302"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TMP_COLOR_YMAX" Address="0x4303"  data_b="*" data_h="0x02" Bit="[13:8]" Description="增益联动彩色模式下K2"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TMP_COLOR_YMAX" Address="0x4304"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TMP_BW_YMIN" Address="0x4305"  data_b="*" data_h="0x00" Bit="[13:8]" Description="增益联动黑白模式下K1"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TMP_BW_YMIN" Address="0x4306"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TMP_BW_YMAX" Address="0x4307"  data_b="*" data_h="0x02" Bit="[13:8]" Description="增益联动黑白模式下K2"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TMP_BW_YMAX" Address="0x4308"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TMP_COLOR_XMIN" Address="0x4309"  data_b="*" data_h="0x00" Bit="[11:8]" Description="增益联动彩色模式下GAIN1"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TMP_COLOR_XMIN" Address="0x430A"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TMP_COLOR_XMAX" Address="0x430B"  data_b="*" data_h="0x04" Bit="[11:8]" Description="增益联动彩色模式下GAIN2"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TMP_COLOR_XMAX" Address="0x430C"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TMP_BW_XMIN" Address="0x430D"  data_b="*" data_h="0x00" Bit="[11:8]" Description="增益联动黑白模式下GAIN1"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TMP_BW_XMIN" Address="0x430E"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TMP_BW_XMAX" Address="0x430F"  data_b="*" data_h="0x04" Bit="[11:8]" Description="增益联动黑白模式下GAIN2"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TMP_BW_XMAX" Address="0x4310"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TMP_COLOR_TH" Address="0x4311"  data_b="*" data_h="0x02" Bit="[9:8]" Description="直方图统计彩色模式下阈值"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TMP_COLOR_TH" Address="0x4312"  data_b="*" data_h="0x58" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TMP_BW_TH" Address="0x4313"  data_b="*" data_h="0x01" Bit="[9:8]" Description="直方图统计黑白模式下阈值"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TMP_BW_TH" Address="0x4314"  data_b="*" data_h="0x90" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+	
+
+
+
+		<reg reg_name="ATS_GAIN_LN_EN" Address="0x4400"  data_b="1" data_h="0x03" Bit="[1]" Description="彩色模式，增益联动使能。1'b0:使能无效，1'b1:使能有效"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="ATS_EN" Address="0x4400"  data_b="1" data_h="0x03" Bit="[0]" Description="AUTO_SATURATION模块使能。1'b0:使能无效，1'b1:使能有效"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="ATS_T" Address="0x4401"  data_b="*" data_h="0x00" Bit="[8]" Description="控制RGB差值的大小。有符号数，一位整数位，七位符号位"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ATS_T" Address="0x4402"  data_b="*" data_h="0x40" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="ATS_GAIN_XMIN" Address="0x4403"  data_b="*" data_h="0x00" Bit="[11:8]" Description="增益联动，横坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ATS_GAIN_XMIN" Address="0x4404"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="ATS_GAIN_XMAX" Address="0x4405"  data_b="*" data_h="0x04" Bit="[11:8]" Description="增益联动，横坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ATS_GAIN_XMAX" Address="0x4406"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="ATS_GAIN_YMIN" Address="0x4407"  data_b="*" data_h="0x00" Bit="[13:8]" Description="增益联动，纵坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ATS_GAIN_YMIN" Address="0x4408"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="ATS_GAIN_YMAX" Address="0x4409"  data_b="*" data_h="0x01" Bit="[13:8]" Description="增益联动，纵坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ATS_GAIN_YMAX" Address="0x440A"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+	
+
+
+
+		<reg reg_name="AFD_EN" Address="0x4500"  data_b="0" data_h="0x00" Bit="[3]" Description="auto flicker function:1: enable 0: disable"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="AFD_AEC_DFLICKER_EN" Address="0x4500"  data_b="0" data_h="0x00" Bit="[2]" Description="AEC control interface: 1: enalbe AEC to de-flicker by adjust exposure time 0: disable AEC to de-flicker by adjust exposure time"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="AFD_MODE" Address="0x4500"  data_b="00" data_h="0x00" Bit="[1:0]" Description="2'b00: auto 2'b01: auto 2'b10: Manual 50Hz 2'b11: manual 60Hz"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="AFD_FLICKER_INFO" Address="0x4501"  data_b="*" data_h="0x00" Bit="[1:0]" Description="2'b00: No Flicker 2'b01: 50Hz flicker detected 2'b10: 50Hz flicker detected 2'b11: Under Detemined"  Mem_Type="RO" CID="1"/>
+		<reg reg_name="AFD_HZ50_INDEX" Address="0x4502"  data_b="*" data_h="0x00" Bit="[12:8]" Description="the position of 50Hz in frequency domain"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AFD_HZ50_INDEX" Address="0x4503"  data_b="*" data_h="0x12" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AFD_HZ60_INDEX" Address="0x4504"  data_b="*" data_h="0x00" Bit="[12:8]" Description="the position of 50Hz in frequency domain"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AFD_HZ60_INDEX" Address="0x4505"  data_b="*" data_h="0x18" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AFD_EXP_HZ50_STEP" Address="0x4506"  data_b="*" data_h="0x00" Bit="[15:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AFD_EXP_HZ50_STEP" Address="0x4507"  data_b="*" data_h="0x1F" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AFD_EXP_HZ60_STEP" Address="0x4508"  data_b="*" data_h="0x00" Bit="[15:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AFD_EXP_HZ60_STEP" Address="0x4509"  data_b="*" data_h="0x26" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AFD_WIDTH_END_IND" Address="0x450A"  data_b="*" data_h="0x02" Bit="[9:8]" Description="the maximum column address that less or equal to witch is avalid to calculate the line vector "  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AFD_WIDTH_END_IND" Address="0x450B"  data_b="*" data_h="0x43" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AFD_WIDTH_START_IND" Address="0x450C"  data_b="*" data_h="0x00" Bit="[9:8]" Description="the minimum column address that large or equal to witch is avalid to calculate the line vector "  Mem_Type="RW" CID="01"/>
+		<reg reg_name="AFD_WIDTH_START_IND" Address="0x450D"  data_b="*" data_h="0x44" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="AFD_WIDTH_SHIFT_BIT" Address="0x450E"  data_b="*" data_h="0x09" Bit="[7:0]" Description="work as a divisor to calculate line vecor, and the actual divisor is 2^N"  Mem_Type="RW" CID="1"/>
+
+		<reg reg_name="AFD_SENCECHANGE_TH" Address="0x450F"  data_b="*" data_h="0x00" Bit="[17:16]" Description="when the sence difference(frame by frame) larger than which is considered that the scence is changed"  Mem_Type="RW" CID="03"/>
+		<reg reg_name="AFD_SENCECHANGE_TH" Address="0x4510"  data_b="*" data_h="0x75" Bit="[15:8]" Description=""  Mem_Type="RW" CID="03"/>
+		<reg reg_name="AFD_SENCECHANGE_TH" Address="0x4511"  data_b="*" data_h="0x30" Bit="[7:0]" Description=""  Mem_Type="RW" CID="03"/>
+
+		<reg reg_name="AFD_NF_TH" Address="0x4512"  data_b="*" data_h="0x00" Bit="[31:24]" Description="when the amplitude of frequcency is less than witch is considered there isn't any flicker on the vision"  Mem_Type="RW" CID="04"/>
+		<reg reg_name="AFD_NF_TH" Address="0x4513"  data_b="*" data_h="0x00" Bit="[23:16]" Description=""  Mem_Type="RW" CID="04"/>
+		<reg reg_name="AFD_NF_TH" Address="0x4514"  data_b="*" data_h="0x03" Bit="[15:8]" Description=""  Mem_Type="RW" CID="04"/>
+		<reg reg_name="AFD_NF_TH" Address="0x4515"  data_b="*" data_h="0xE8" Bit="[7:0]" Description=""  Mem_Type="RW" CID="04"/>
+
+		<reg reg_name="AFD_MIN_PROCFRAMENUM" Address="0x4516"  data_b="*" data_h="0x02" Bit="[7:0]" Description="the minimum frame number should be while scence changed"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AFD_MAX_PROCFRAMENUM" Address="0x4517"  data_b="*" data_h="0x0A" Bit="[7:0]" Description="the maximum frame number that this function should to judgement the flicker mode, and then restart this function"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="AFD_VALIDE_PROCFRAMENUM" Address="0x4518"  data_b="*" data_h="0x05" Bit="[7:0]" Description="the frame number of valide frame that has been checked, goto judgement state and then restart this function "  Mem_Type="RW" CID="1"/>
+		<reg reg_name="DFT_SAMPLE_NUM" Address="0x4519"  data_b="*" data_h="0x1F" Bit="[12:8]" Description="the line vector number used by DFT funciton"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DFT_SAMPLE_NUM" Address="0x451A"  data_b="*" data_h="0xFF" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+
+		<reg reg_name="AFD_HZ50_VALUE_DEBUG" Address="0x451B"  data_b="*" data_h="0x00" Bit="[31:24]" Description=""  Mem_Type="RO" CID="04"/>
+		<reg reg_name="AFD_HZ50_VALUE_DEBUG" Address="0x451C"  data_b="*" data_h="0x00" Bit="[23:16]" Description=""  Mem_Type="RO" CID="04"/>
+		<reg reg_name="AFD_HZ50_VALUE_DEBUG" Address="0x451D"  data_b="*" data_h="0x00" Bit="[15:8]" Description=""  Mem_Type="RO" CID="04"/>
+		<reg reg_name="AFD_HZ50_VALUE_DEBUG" Address="0x451E"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID="04"/>
+
+		<reg reg_name="AFD_HZ60_VALUE_DEBUG" Address="0x451F"  data_b="*" data_h="0x00" Bit="[31:24]" Description=""  Mem_Type="RO" CID="04"/>
+		<reg reg_name="AFD_HZ60_VALUE_DEBUG" Address="0x4520"  data_b="*" data_h="0x00" Bit="[23:16]" Description=""  Mem_Type="RO" CID="04"/>
+		<reg reg_name="AFD_HZ60_VALUE_DEBUG" Address="0x4521"  data_b="*" data_h="0x00" Bit="[15:8]" Description=""  Mem_Type="RO" CID="04"/>
+		<reg reg_name="AFD_HZ60_VALUE_DEBUG" Address="0x4522"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID="04"/>
+
+		<reg reg_name="AFD_STATUS_DEBUG" Address="0x4523"  data_b="*" data_h="0x00" Bit="[1:0]" Description=""  Mem_Type="RO" CID=""/>
+	
+	
+
+
+
+		<reg reg_name="Y_DENOISE_LN_EN" Address="0x4600"  data_b="1" data_h="0x03" Bit="[1]" Description="增益联动使能.1：打开；0：关闭"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="Y_DENOISE_EN" Address="0x4600"  data_b="1" data_h="0x03" Bit="[0]" Description="模块时能。1：打开；0：关闭"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="Y_DENOISE_EPS" Address="0x4601"  data_b="*" data_h="0x01" Bit="[9:8]" Description="滤波强度配置参数"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="Y_DENOISE_EPS" Address="0x4602"  data_b="*" data_h="0x2C" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="Y_DENOISE_YMIN" Address="0x4603"  data_b="*" data_h="0x00" Bit="[13:8]" Description="增益联动模式下K1"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="Y_DENOISE_YMIN" Address="0x4604"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="Y_DENOISE_YMAX" Address="0x4605"  data_b="*" data_h="0x04" Bit="[13:8]" Description="增益联动模式下K2"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="Y_DENOISE_YMAX" Address="0x4606"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="Y_DENOISE_XMIN" Address="0x4607"  data_b="*" data_h="0x00" Bit="[11:8]" Description="增益联动模式下GAIN1"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="Y_DENOISE_XMIN" Address="0x4608"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="Y_DENOISE_XMAX" Address="0x4609"  data_b="*" data_h="0x04" Bit="[11:8]" Description="增益联动模式下GAIN2"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="Y_DENOISE_XMAX" Address="0x460A"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="UV_DENOISE_EN" Address="0x4700"  data_b="*" data_h="0x01" Bit="[0]" Description="UV模块使能。1：打开；0：关闭"  Mem_Type="RW" CID="1"/>
+	
+
+
+
+		<reg reg_name="EDGE_EN" Address="0x4800"  data_b="*" data_h="0x01" Bit="[0]" Description="模块使能。1：打开；0：关闭"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="EDGE_EPS" Address="0x4801"  data_b="*" data_h="0x01" Bit="[9:8]" Description="引导滤波配置参数"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="EDGE_EPS" Address="0x4802"  data_b="*" data_h="0x2C" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="EDGE_K" Address="0x4803"  data_b="*" data_h="0x01" Bit="[3:0]" Description="增强系数"  Mem_Type="RW" CID="1"/>		
+	
+
+
+
+		<reg reg_name="BRIGHT_EN" Address="0x4900"  data_b="0" data_h="0x07" Bit="[3]" Description=""  Mem_Type="RW" CID="4"/>
+		<reg reg_name="CONTRAST_GAIN_LNBW_EN" Address="0x4900"  data_b="1" data_h="0x07" Bit="[2]" Description="黑白模式，增益联动使能。1'b0:使能无效，1'b1:使能有效"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="CONTRAST_GAIN_LNCOLOR_EN" Address="0x4900"  data_b="1" data_h="0x07" Bit="[1]" Description="彩色模式，增益联动使能。1'b0:使能无效，1'b1:使能有效"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="CONTRAST_EN" Address="0x4900"  data_b="1" data_h="0x07" Bit="[0]" Description="AUTO_SATURATION模块使能。1'b0:使能无效，1'b1:使能有效"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="CONTRAST_BRIGHT" Address="0x4901"  data_b="*" data_h="0x00" Bit="[8]" Description="Y域亮度值调整，有符号数"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CONTRAST_BRIGHT" Address="0x4902"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CONTRAST_TH_COLOR" Address="0x4903"  data_b="*" data_h="0x80" Bit="[7:0]" Description="彩色模式下，自动对比度S-SHAPE函数中间段斜率。1bit整数位，7bit小数位。"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="CONTRAST_TH_BW" Address="0x4904"  data_b="*" data_h="0x80" Bit="[7:0]" Description="黑白模式下，自动对比度S-SHAPE函数中间段斜率。1bit整数位，7bit小数位。"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="CONTRAST_X1" Address="0x4905"  data_b="*" data_h="0x40" Bit="[7:0]" Description="自动对比度S-SHAPE函数X1坐标值配置"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="CONTRAST_X2" Address="0x4906"  data_b="*" data_h="0x80" Bit="[7:0]" Description="自动对比度S-SHAPE函数X2坐标值配置"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="CONTRAST_Y2" Address="0x4907"  data_b="*" data_h="0x80" Bit="[7:0]" Description="自动对比度S-SHAPE函数Y2坐标值配置"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="CONTRAST_X3" Address="0x4908"  data_b="*" data_h="0xC0" Bit="[7:0]" Description="自动对比度S-SHAPE函数X3坐标值配置"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="CONTRAST_AUX_M" Address="0x4909"  data_b="*" data_h="0x02" Bit="[14:8]" Description="优化除法"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CONTRAST_AUX_M" Address="0x490A"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CONTRAST_GAIN_XMIN_COLOR" Address="0x490B"  data_b="*" data_h="0x00" Bit="[11:8]" Description="彩色模式下，横坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CONTRAST_GAIN_XMIN_COLOR" Address="0x490C"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CONTRAST_GAIN_XMAX_COLOR" Address="0x490D"  data_b="*" data_h="0x04" Bit="[11:8]" Description="彩色模式下，横坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CONTRAST_GAIN_XMAX_COLOR" Address="0x490E"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CONTRAST_GAIN_YMIN_COLOR" Address="0x490F"  data_b="*" data_h="0x00" Bit="[13:8]" Description="彩色模式下，纵坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CONTRAST_GAIN_YMIN_COLOR" Address="0x4910"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CONTRAST_GAIN_YMAX_COLOR" Address="0x4911"  data_b="*" data_h="0x00" Bit="[13:8]" Description="彩色模式下，纵坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CONTRAST_GAIN_YMAX_COLOR" Address="0x4912"  data_b="*" data_h="0xA0" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CONTRAST_GAIN_XMIN_BW" Address="0x4913"  data_b="*" data_h="0x00" Bit="[11:8]" Description="黑白模式下，横坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CONTRAST_GAIN_XMIN_BW" Address="0x4914"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CONTRAST_GAIN_XMAX_BW" Address="0x4915"  data_b="*" data_h="0x04" Bit="[11:8]" Description="黑白模式下，横坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CONTRAST_GAIN_XMAX_BW" Address="0x4916"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CONTRAST_GAIN_YMIN_BW" Address="0x4917"  data_b="*" data_h="0x00" Bit="[13:8]" Description="黑白模式下，纵坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CONTRAST_GAIN_YMIN_BW" Address="0x4918"  data_b="*" data_h="0x80" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CONTRAST_GAIN_YMAX_BW" Address="0x4919"  data_b="*" data_h="0x00" Bit="[13:8]" Description="黑白模式下，纵坐标配置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CONTRAST_GAIN_YMAX_BW" Address="0x491A"  data_b="*" data_h="0xA0" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+
+
+
+
+        <reg reg_name="WIN_WST" Address="0x4A00"  data_b="*" data_h="0x00" Bit="[9:8]" Description="窗口裁剪水平方向起始地址"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="WIN_WST" Address="0x4A01"  data_b="*" data_h="0x04" Bit="[7:0]" Description="" Mem_Type="RW" CID=""/>
+		<reg reg_name="WIN_WLEN" Address="0x4A02"  data_b="*" data_h="0x02" Bit="[9:8]" Description="窗口裁剪宽度"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="WIN_WLEN" Address="0x4A03"  data_b="*" data_h="0xD0" Bit="[7:0]" Description="" Mem_Type="RW" CID=""/> 
+		<reg reg_name="WIN_HST" Address="0x4A04"  data_b="*" data_h="0x00" Bit="[9:8]" Description="窗口裁剪竖直方向起始地址"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="WIN_HST" Address="0x4A05"  data_b="*" data_h="0x04" Bit="[7:0]" Description="" Mem_Type="RW" CID=""/>
+		<reg reg_name="WIN_HLEN" Address="0x4A06"  data_b="*" data_h="0x01" Bit="[9:8]" Description="窗口裁剪高度 NTSC：488 PAL：576"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="WIN_HLEN" Address="0x4A07"  data_b="*" data_h="0xE8" Bit="[7:0]" Description="" Mem_Type="RW" CID=""/>		
+	
+
+
+
+		<reg reg_name="PG_LN_EN" Address="0x4B00"  data_b="0" data_h="0x00" Bit="[1]" Description="距离参考线使能"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="PG_CRV_EN" Address="0x4B00"  data_b="0" data_h="0x00" Bit="[0]" Description="功能关闭"  Mem_Type="RO" CID="2"/>
+		<reg reg_name="PG_LN_Y0" Address="0x4B01"  data_b="*" data_h="0x00" Bit="[9:8]" Description="距离参考线的第一第线段的行起始位置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_Y0" Address="0x4B02"  data_b="*" data_h="0x32" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="PG_LN_Y1" Address="0x4B03"  data_b="*" data_h="0x00" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_Y1" Address="0x4B04"  data_b="*" data_h="0x46" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="PG_LN_Y2" Address="0x4B05"  data_b="*" data_h="0x00" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_Y2" Address="0x4B06"  data_b="*" data_h="0x73" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="PG_LN_Y3" Address="0x4B07"  data_b="*" data_h="0x00" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_Y3" Address="0x4B08"  data_b="*" data_h="0xA5" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="PG_LN_Y4" Address="0x4B09"  data_b="*" data_h="0x00" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_Y4" Address="0x4B0A"  data_b="*" data_h="0xDC" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="PG_LN_Y5" Address="0x4B0B"  data_b="*" data_h="0x00" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_Y5" Address="0x4B0C"  data_b="*" data_h="0xF0" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="PG_LN_Y6" Address="0x4B0D"  data_b="*" data_h="0x01" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_Y6" Address="0x4B0E"  data_b="*" data_h="0x2C" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="PG_LN_Y7" Address="0x4B0F"  data_b="*" data_h="0x01" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_Y7" Address="0x4B10"  data_b="*" data_h="0x68" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+        <reg reg_name="PG_LN_Y8" Address="0x4B11"  data_b="*" data_h="0x01" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_Y8" Address="0x4B12"  data_b="*" data_h="0xA4" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+        <reg reg_name="PG_LN_Y9" Address="0x4B13"  data_b="*" data_h="0x01" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_Y9" Address="0x4B14"  data_b="*" data_h="0xB8" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="PG_LN_TYPE_Y0" Address="0x4B15"  data_b="1" data_h="0x02" Bit="[1]" Description="距离参考线的第一第线段的宽度类型= 0：长；1：短"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="PG_LN_TYPE_Y1" Address="0x4B15"  data_b="0" data_h="0x02" Bit="[0]" Description=""  Mem_Type="RW" CID="2"/>
+		<reg reg_name="PG_LN_TYPE_Y2" Address="0x4B16"  data_b="0" data_h="0x22" Bit="[7]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PG_LN_TYPE_Y3" Address="0x4B16"  data_b="0" data_h="0x22" Bit="[6]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PG_LN_TYPE_Y4" Address="0x4B16"  data_b="1" data_h="0x22" Bit="[5]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PG_LN_TYPE_Y5" Address="0x4B16"  data_b="0" data_h="0x22" Bit="[4]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PG_LN_TYPE_Y6" Address="0x4B16"  data_b="0" data_h="0x22" Bit="[3]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PG_LN_TYPE_Y7" Address="0x4B16"  data_b="0" data_h="0x22" Bit="[2]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PG_LN_TYPE_Y8" Address="0x4B16"  data_b="1" data_h="0x22" Bit="[1]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PG_LN_TYPE_Y9" Address="0x4B16"  data_b="0" data_h="0x22" Bit="[0]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PG_LN_SHORT_WIDTH" Address="0x4B17"  data_b="*" data_h="0x14" Bit="[5:0]" Description="距离参考线线段中短类型的宽度"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_LONG_WIDTH" Address="0x4B18"  data_b="*" data_h="0x32" Bit="[5:0]" Description="距离参考线线段中长类型的宽度"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_HEIGHT_Y0" Address="0x4B19"  data_b="*" data_h="0x14" Bit="[5:0]" Description="距离参考线的第一第线段行高度"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_HEIGHT_Y1" Address="0x4B1A"  data_b="*" data_h="0x19" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_HEIGHT_Y2" Address="0x4B1B"  data_b="*" data_h="0x19" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_HEIGHT_Y3" Address="0x4B1C"  data_b="*" data_h="0x1E" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_HEIGHT_Y4" Address="0x4B1D"  data_b="*" data_h="0x14" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_HEIGHT_Y5" Address="0x4B1E"  data_b="*" data_h="0x28" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_HEIGHT_Y6" Address="0x4B1F"  data_b="*" data_h="0x28" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_HEIGHT_Y7" Address="0x4B20"  data_b="*" data_h="0x28" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_HEIGHT_Y8" Address="0x4B21"  data_b="*" data_h="0x14" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_HEIGHT_Y9" Address="0x4B22"  data_b="*" data_h="0x14" Bit="[5:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_Y0_CLR" Address="0x4B23"  data_b="*" data_h="0x02" Bit="[2:0]" Description="距离参考线的第一第线段的颜色"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_Y1_CLR" Address="0x4B24"  data_b="*" data_h="0x02" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_Y2_CLR" Address="0x4B25"  data_b="*" data_h="0x01" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_Y3_CLR" Address="0x4B26"  data_b="*" data_h="0x01" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_Y4_CLR" Address="0x4B27"  data_b="*" data_h="0x01" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_Y5_CLR" Address="0x4B28"  data_b="*" data_h="0x01" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_Y6_CLR" Address="0x4B29"  data_b="*" data_h="0x00" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_Y7_CLR" Address="0x4B2A"  data_b="*" data_h="0x00" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_Y8_CLR" Address="0x4B2B"  data_b="*" data_h="0x00" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_Y9_CLR" Address="0x4B2C"  data_b="*" data_h="0x00" Bit="[2:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_LN_W_ST_L" Address="0x4B2D"  data_b="*" data_h="0x00" Bit="[9:8]" Description="左边距离参考线的延长线在画面上最后一行中的列位置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_W_ST_L" Address="0x4B2E"  data_b="*" data_h="0x64" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="PG_LN_W_ST_R" Address="0x4B2F"  data_b="*" data_h="0x02" Bit="[9:8]" Description="右边距离参考线的延长线在画面上最后一行中的列位置"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_W_ST_R" Address="0x4B30"  data_b="*" data_h="0x6C" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="PG_LN_SLOPE" Address="0x4B31"  data_b="*" data_h="0x04" Bit="[11:8]" Description="距离参考线的斜率"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="PG_LN_SLOPE" Address="0x4B32"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="PG_LN_WEIGHT" Address="0x4B34"  data_b="*" data_h="0x64" Bit="[7:0]" Description="Y通道的透明度"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PG_TNG_HEIGHT" Address="0x4B47"  data_b="*" data_h="0x0A" Bit="[5:0]" Description="倒车切线的高度"  Mem_Type="RW" CID="1"/>	
+	
+
+
+
+		
+	
+
+		<reg reg_name="TV_MODE" Address="0x4C00"  data_b="0" data_h="0x00" Bit="[0]" Description="0: NTSC 1: PAL "  Mem_Type="RW" CID="1"/>
+		<reg reg_name="DVP_SWP" Address="0x4C01"  data_b="0" data_h="0x01" Bit="[3]" Description="输出数据对应D11~D0排开格式，（如果输出有符号数，符号位始终放在DS端口）：0: [MSB:LSB]  1: [LSB:MSB]"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="HSYNC_POLARITY" Address="0x4C01"  data_b="0" data_h="0x01" Bit="[2]" Description="0(default):行同步信号高电平有效，1：行同步信号低电平有效"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="VSYNC_POLARITY" Address="0x4C01"  data_b="0" data_h="0x01" Bit="[1]" Description="0(default):帧同步信号高电平有效，1：帧同步信号低电平有效"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="PCLK_POLARITY" Address="0x4C01"  data_b="1" data_h="0x01" Bit="[0]" Description="0: PCLK上升沿与数据的边沿对齐，1(default),PCLK上升沿与数据中间对齐 "  Mem_Type="RW" CID="4"/>
+		<reg reg_name="DVP_FMT" Address="0x4C02"  data_b="*" data_h="0x00" Bit="[2:0]" Description="0: yuv4221: ccir656 2: yuv444 3: yyy 4: raw 5: progressed raw 6: rgb 7: TV-Encoder"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="YCBCR_PATTERN" Address="0x4C03"  data_b="*" data_h="0x00" Bit="[1:0]" Description="0: PCLK上升沿与数据的边沿对齐，1(default),PCLK上升沿与数据中间对齐 "  Mem_Type="RW" CID="1"/>
+		<reg reg_name="RGB_PATTERN" Address="0x4C04"  data_b="*" data_h="0x01" Bit="[1:0]" Description="0: cbycr 1: crycb 2: ycbcr 3: ycrcb"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TV_WIDTH" Address="0x4C05"  data_b="*" data_h="0x03" Bit="[9:8]" Description="0: rgb888 1: rgb565 2: rgb555 3: rgb444"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_WIDTH" Address="0x4C06"  data_b="*" data_h="0x5A" Bit="[7:0]" Description="0: rgb888 1: rgb565 2: rgb555 3: rgb444"  Mem_Type="RW" CID=""/>
+		<reg reg_name="TV_HEIGHT" Address="0x4C07"  data_b="*" data_h="0x02" Bit="[9:8]" Description="NTSC: 525,Default PAL: 625"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_HEIGHT" Address="0x4C08"  data_b="*" data_h="0x0D" Bit="[7:0]" Description="NTSC: 525,Default PAL: 625"  Mem_Type="RW" CID=""/>
+		<reg reg_name="TV_RESTART" Address="0x4C09"  data_b="0" data_h="0x00" Bit="[0]" Description="芯片内部检测该配置位的上升沿，并使内部重新产生TV-Encoder的Start触发信号"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TV_START_ROWS" Address="0x4C0A"  data_b="*" data_h="0x00" Bit="[9:8]" Description="TV-Encoder START信号控制寄存器，START信号上升沿到第一场的第一个有效数据之间的间距为TV_START_ROWS*FRAME_W+TV_START_COLS个CLK@27MHz周期"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_START_ROWS" Address="0x4C0B"  data_b="*" data_h="0x15" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TV_START_COLS" Address="0x4C0C"  data_b="*" data_h="0x01" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_START_COLS" Address="0x4C0D"  data_b="*" data_h="0x0B" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TV_PARAM_MODE" Address="0x4C0E"  data_b="1" data_h="0x01" Bit="[0]" Description="0:用户自定义各场参数；1：使用内建的场参数"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TV_FIELD1_ACT_HEIGHT" Address="0x4C0F"  data_b="*" data_h="0x00" Bit="[9:8]" Description="第一场中有效行行数(NTSC:244,PAL:288)"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_FIELD1_ACT_HEIGHT" Address="0x4C10"  data_b="*" data_h="0xF4" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TV_FIELD1_ST_VA" Address="0x4C11"  data_b="*" data_h="0x00" Bit="[9:8]" Description="第一场中第一个有效行的起始行位置(NTSC:20, PAL:23)"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_FIELD1_ST_VA" Address="0x4C12"  data_b="*" data_h="0x14" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TV_FIELD1_ST_VB1" Address="0x4C13"  data_b="*" data_h="0x00" Bit="[9:8]" Description="第一场中场首的Blanking起始行位置(NTSC:4, PAL:1)"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_FIELD1_ST_VB1" Address="0x4C14"  data_b="*" data_h="0x04" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TV_FIELD1_ST_VB2" Address="0x4C15"  data_b="*" data_h="0x01" Bit="[9:8]" Description="第一场中场尾的Blanking起始行位置(NTSC:264, PAL:311)"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_FIELD1_ST_VB2" Address="0x4C16"  data_b="*" data_h="0x08" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TV_FIELD2_ACT_HEIGHT" Address="0x4C17"  data_b="*" data_h="0x00" Bit="[9:8]" Description="第二场中有效行行数(NTSC:243, PAL:288)"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_FIELD2_ACT_HEIGHT" Address="0x4C18"  data_b="*" data_h="0xF3" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TV_FIELD2_ST_VA" Address="0x4C19"  data_b="*" data_h="0x01" Bit="[9:8]" Description="第二场中第一个有效行的起始行位置(NTSC:283, PAL:336)"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_FIELD2_ST_VA" Address="0x4C1A"  data_b="*" data_h="0x1B" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TV_FIELD2_ST_VB1" Address="0x4C1B"  data_b="*" data_h="0x01" Bit="[9:8]" Description="第二场中场首的Blanking起始行位置(NTSC:266, PAL313)"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_FIELD2_ST_VB1" Address="0x4C1C"  data_b="*" data_h="0x0A" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TV_FIELD2_ST_VB2" Address="0x4C1D"  data_b="*" data_h="0x00" Bit="[9:8]" Description="第二场中场尾的Blanking起始行位置(NTSC:1, PAL:624)"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TV_FIELD2_ST_VB2" Address="0x4C1E"  data_b="*" data_h="0x01" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="VSTART" Address="0x4C1F"  data_b="*" data_h="0x00" Bit="[15:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="VSTART" Address="0x4C20"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="VLENGHT" Address="0x4C21"  data_b="*" data_h="0x00" Bit="[15:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="VLENGHT" Address="0x4C22"  data_b="*" data_h="0x01" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+	
+
+
+
+		<reg reg_name="EN_DAC" Address="0x4D00"  data_b="1" data_h="0xC8" Bit="[7]" Description="vdac使能信号 0：vdac Disable 1：vdac Enable"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="EACTIVE" Address="0x4D00"  data_b="1" data_h="0xC8" Bit="[6]" Description="TVENC数据接入使能 0：eactive Disable 1: eactive Enable"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PAL" Address="0x4D00"  data_b="0" data_h="0xC8" Bit="[5]" Description="PAL制式使能 0: NTSC 1: PAL"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="E625LINE" Address="0x4D00"  data_b="0" data_h="0xC8" Bit="[4]" Description="625行时序使能 0: 525行(NTSC) 1: 625行(PAL)"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="SETUP" Address="0x4D00"  data_b="1" data_h="0xC8" Bit="[3]" Description=""  Mem_Type="RO" CID="8"/>
+		<reg reg_name="VSYNC_DUR" Address="0x4D00"  data_b="0" data_h="0xC8" Bit="[2]" Description=""  Mem_Type="RO" CID="8"/>
+		<reg reg_name="EBLUE" Address="0x4D00"  data_b="0" data_h="0xC8" Bit="[1]" Description="测试模式-蓝屏 0：不使能测试模式 1：使能蓝屏测试模式"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="ECBAR" Address="0x4D00"  data_b="0" data_h="0xC8" Bit="[0]" Description="测试模式-Color bar 0：不是能测试模式 1：使能 Color bar测试模式  优先级高于EBLUE"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="DCHROMA" Address="0x4D01"  data_b="0" data_h="0x30" Bit="[7]" Description="仅黑白模式使能 0：Color 1：Black and White"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="CHROMA_BW" Address="0x4D01"  data_b="0" data_h="0x30" Bit="[6]" Description=""  Mem_Type="RO" CID="8"/>
+		<reg reg_name="BY_YCCR" Address="0x4D01"  data_b="1" data_h="0x30" Bit="[5]" Description=""  Mem_Type="RO" CID="8"/>
+		<reg reg_name="ECLIP" Address="0x4D01"  data_b="1" data_h="0x30" Bit="[4]" Description="信号溢出截位 0：eclip Disable 1: eclip Enable"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="CVBSD_INV" Address="0x4D01"  data_b="0" data_h="0x30" Bit="[3]" Description="cvbs信号取反 0：positive 1: negetive"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="MOD_CVBS_INV" Address="0x4D01"  data_b="0" data_h="0x30" Bit="[2]" Description="mod_cvbs信号取反 0：positive 1: negetive"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="VSYNCI" Address="0x4D01"  data_b="0" data_h="0x30" Bit="[1]" Description="vsync输出极性"  Mem_Type="RO" CID="8"/>
+		<reg reg_name="HSYNCI" Address="0x4D01"  data_b="0" data_h="0x30" Bit="[0]" Description="hsync输出极性"  Mem_Type="RO" CID="8"/>
+		<reg reg_name="MXTN" Address="0x4D02"  data_b="0" data_h="0x02" Bit="[7]" Description=""  Mem_Type="RO" CID="4"/>
+		<reg reg_name="START_TIMING_SEL" Address="0x4D02"  data_b="00" data_h="0x02" Bit="[6:5]" Description="start信号相位选择 0:原信号 1：DELAY 1 clk（27M） 2：DELAY 2 clk (27M) 3: DELAY 3 clk (27M)"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="PKFIL_SEL" Address="0x4D02"  data_b="000" data_h="0x02" Bit="[4:2]" Description=""  Mem_Type="RO" CID="4"/>
+		<reg reg_name="OUT_MODE" Address="0x4D02"  data_b="10" data_h="0x02" Bit="[1:0]" Description="输出模式 0:CVBS 1:CVBS_DLY 2:MOD_DLY 3:LUMA Only"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="COL_ST" Address="0x4D03"  data_b="*" data_h="0x01" Bit="[11:8]" Description="TVENC接收ACTIVE数据Col_st地址高位"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="COL_ST" Address="0x4D04"  data_b="*" data_h="0x0A" Bit="[7:0]" Description="TVENC接收ACTIVE数据Col_st地址低位"  Mem_Type="RW" CID=""/>
+		<reg reg_name="COL_END" Address="0x4D05"  data_b="*" data_h="0x06" Bit="[11:8]" Description="TVENC接收ACTIVE数据Col_end地址高位"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="COL_END" Address="0x4D06"  data_b="*" data_h="0xA9" Bit="[7:0]" Description="TVENC接收ACTIVE数据Col_end地址低位"  Mem_Type="RW" CID=""/>
+		<reg reg_name="ROW_ST1" Address="0x4D07"  data_b="*" data_h="0x00" Bit="[9:8]" Description="TVENC接收ACTIVE数据第一场row_st地址高位"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ROW_ST1" Address="0x4D08"  data_b="*" data_h="0x16" Bit="[7:0]" Description="TVENC接收ACTIVE数据第一场row_st地址低位"  Mem_Type="RW" CID=""/>
+		<reg reg_name="ROW_END1" Address="0x4D09"  data_b="*" data_h="0x01" Bit="[9:8]" Description="TVENC接收ACTIVE数据第一场row_end地址高位"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ROW_END1" Address="0x4D0A"  data_b="*" data_h="0x06" Bit="[7:0]" Description="TVENC接收ACTIVE数据第一场row_end地址低位"  Mem_Type="RW" CID=""/>
+		<reg reg_name="ROW_ST2" Address="0x4D0B"  data_b="*" data_h="0x01" Bit="[9:8]" Description="TVENC接收ACTIVE数据第二场row_st地址高位"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ROW_ST2" Address="0x4D0C"  data_b="*" data_h="0x1D" Bit="[7:0]" Description="TVENC接收ACTIVE数据第二场row_st地址低位"  Mem_Type="RW" CID=""/>
+		<reg reg_name="ROW_END2" Address="0x4D0D"  data_b="*" data_h="0x02" Bit="[9:8]" Description="TVENC接收ACTIVE数据第二场row_end地址高位"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ROW_END2" Address="0x4D0E"  data_b="*" data_h="0x0D" Bit="[7:0]" Description="TVENC接收ACTIVE数据第二场row_end地址低位"  Mem_Type="RW" CID=""/>
+		<reg reg_name="HORIZ_CYCLE" Address="0x4D0F"  data_b="*" data_h="0x06" Bit="[11:8]" Description="行周期数高位"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="HORIZ_CYCLE" Address="0x4D10"  data_b="*" data_h="0xB4" Bit="[7:0]" Description="行周期数低位"  Mem_Type="RW" CID=""/>
+		<reg reg_name="HACTIVE" Address="0x4D11"  data_b="*" data_h="0x02" Bit="[9:8]" Description="行有效数高位"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="HACTIVE" Address="0x4D12"  data_b="*" data_h="0xC8" Bit="[7:0]" Description="行有效数低位"  Mem_Type="RW" CID=""/>
+		<reg reg_name="AHSYNC_WIDTH" Address="0x4D13"  data_b="*" data_h="0x7E" Bit="[9:8]" Description="行同步宽度"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="HBLANK" Address="0x4D14"  data_b="*" data_h="0x01" Bit="[9:8]" Description="行消影宽度高位"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="HBLANK" Address="0x4D15"  data_b="*" data_h="0x0C" Bit="[7:0]" Description="行消影宽度低位"  Mem_Type="RW" CID=""/>
+		<reg reg_name="BURST_BEGIN" Address="0x4D16"  data_b="*" data_h="0x90" Bit="[7:0]" Description="色同步开始"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="BURST_END" Address="0x4D17"  data_b="*" data_h="0x54" Bit="[7:0]" Description="色同步结束"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="VACTIVE" Address="0x4D18"  data_b="*" data_h="0x00" Bit="[8]" Description="场有效行数高位"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="VACTIVE" Address="0x4D19"  data_b="*" data_h="0xF1" Bit="[7:0]" Description="场有效行数低位"  Mem_Type="RW" CID=""/>
+		<reg reg_name="VBLANK" Address="0x4D1A"  data_b="*" data_h="0x13" Bit="[7:0]" Description="场消影行数"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="HSYNCWIDTH" Address="0x4D1B"  data_b="*" data_h="0x02" Bit="[7:0]" Description="场同步出现行宽度"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="HSYNCOFFSET" Address="0x4D1C"  data_b="*" data_h="0x00" Bit="[9:8]" Description="场同步偏移"  Mem_Type="RW" CID="01"/>
+		<reg reg_name="HSYNCOFFSET" Address="0x4D1D"  data_b="*" data_h="0x00" Bit="[7:0]" Description="场同步偏移"  Mem_Type="RW" CID=""/>
+		<reg reg_name="PHZ_INC" Address="0x4D1E"  data_b="*" data_h="0x21" Bit="[31:24]" Description="子载波相位累加值"  Mem_Type="RW" CID="04"/>
+		<reg reg_name="PHZ_INC" Address="0x4D1F"  data_b="*" data_h="0xF0" Bit="[23:16]" Description="子载波相位累加值"  Mem_Type="RW" CID="04"/>
+		<reg reg_name="PHZ_INC" Address="0x4D20"  data_b="*" data_h="0x7C" Bit="[15:8]" Description="子载波相位累加值"  Mem_Type="RW" CID="04"/>
+		<reg reg_name="PHZ_INC" Address="0x4D21"  data_b="*" data_h="0x1F" Bit="[7:0]" Description="子载波相位累加值"  Mem_Type="RW" CID="04"/>
+		<reg reg_name="DB_INC" Address="0x4D22"  data_b="*" data_h="0x28" Bit="[31:24]" Description="DB累加系数"  Mem_Type="RO" CID="1"/>
+		<reg reg_name="DB_INC" Address="0x4D23"  data_b="*" data_h="0x4B" Bit="[23:16]" Description="DB累加系数"  Mem_Type="RO" CID="1"/>
+		<reg reg_name="DB_INC" Address="0x4D24"  data_b="*" data_h="0xDA" Bit="[15:8]" Description="DB累加系数"  Mem_Type="RO" CID="1"/>
+		<reg reg_name="DB_INC" Address="0x4D25"  data_b="*" data_h="0x13" Bit="[7:0]" Description="DB累加系数"  Mem_Type="RO" CID="1"/>
+		<reg reg_name="DR_LIMITP" Address="0x4D26"  data_b="*" data_h="0x05" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DR_LIMITP" Address="0x4D27"  data_b="*" data_h="0xA3" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DR_LIMITN" Address="0x4D28"  data_b="*" data_h="0x04" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DR_LIMITN" Address="0x4D29"  data_b="*" data_h="0x9F" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DB_LIMITP" Address="0x4D2A"  data_b="*" data_h="0x05" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DB_LIMITP" Address="0x4D2B"  data_b="*" data_h="0xA3" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DB_LIMITN" Address="0x4D2C"  data_b="*" data_h="0x04" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DB_LIMITN" Address="0x4D2D"  data_b="*" data_h="0x9F" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="SC_AMP" Address="0x4D2E"  data_b="*" data_h="0x85" Bit="[7:0]" Description="子载波幅度放大系数"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="SYNC_AMP" Address="0x4D2F"  data_b="*" data_h="0xE5" Bit="[7:0]" Description="同步信号放大系数"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="BST_AMP" Address="0x4D30"  data_b="*" data_h="0x75" Bit="[7:0]" Description="色同步信号放大系数"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="MY" Address="0x4D31"  data_b="*" data_h="0x9A" Bit="[7:0]" Description="Y分量放大系数"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="MCB" Address="0x4D32"  data_b="*" data_h="0x89" Bit="[7:0]" Description="CB分量放大系数"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="MCR" Address="0x4D33"  data_b="*" data_h="0xC1" Bit="[7:0]" Description="CR分量放大系数"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="MOD_YDLY" Address="0x4D34"  data_b="0000" data_h="0x00" Bit="[6:3]" Description="mod_y信号延迟"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="YDLY" Address="0x4D34"  data_b="000" data_h="0x00" Bit="[2:0]" Description="y信号延迟"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="Y_OFF" Address="0x4D35"  data_b="*" data_h="0x00" Bit="[7:0]" Description="y信号offset"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="PHZ_OFF" Address="0x4D36"  data_b="*" data_h="0x00" Bit="[7:0]" Description="子载波相位累加值offset"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="HUE_OFF" Address="0x4D37"  data_b="*" data_h="0x00" Bit="[7:0]" Description="色相offset"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="MULT_VV" Address="0x4D38"  data_b="*" data_h="0x7F" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="MULT_UV" Address="0x4D39"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="MULT_VU" Address="0x4D3A"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="MULT_UU" Address="0x4D3B"  data_b="*" data_h="0x7F" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="MY_ALT" Address="0x4D3C"  data_b="*" data_h="0xA4" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="YALT_SYNC_AMP" Address="0x4D3D"  data_b="*" data_h="0xF0" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="YALT_OFF" Address="0x4D3E"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="DATA_INV" Address="0x4D3F"  data_b="0" data_h="0x00" Bit="[3]" Description=""  Mem_Type="RW" CID="2"/>
+		<reg reg_name="YALT_PKFIL_SEL" Address="0x4D3F"  data_b="000" data_h="0x00" Bit="[2:0]" Description=""  Mem_Type="RW" CID="2"/>
+	
+
+
+
+		<reg reg_name="EN_TEMP" Address="0x4E00"  data_b="0" data_h="0x00" Bit="[0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TS_SYNC" Address="0x4E01"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TS_DATA" Address="0x4E02"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID="1"/>
+	
+
+
+
+		<reg reg_name="EN_RAW" Address="0x4F00"  data_b="0" data_h="0x00" Bit="[1]" Description=""  Mem_Type="RW" CID="2"/>
+		<reg reg_name="EN_REFPIX" Address="0x4F00"  data_b="0" data_h="0x00" Bit="[1]" Description=""  Mem_Type="RW" CID="2"/>
+		<reg reg_name="PROBE_EN" Address="0x4F01"  data_b="0" data_h="0x00" Bit="[5]" Description=""  Mem_Type="RW" CID="2"/>
+		<reg reg_name="SEL_TEST" Address="0x4F01"  data_b="0" data_h="0x00" Bit="[4:0]" Description=""  Mem_Type="RW" CID="2"/>
+		<reg reg_name="COLRDOUT_RMARK" Address="0x4F02"  data_b="0" data_h="0x00" Bit="[3]" Description=""  Mem_Type="RW" CID="4"/>
+		<reg reg_name="COLRDOUT_MOD" Address="0x4F02"  data_b="0" data_h="0x00" Bit="[2]" Description=""  Mem_Type="RW" CID="4"/>
+		<reg reg_name="SHF_GMARK" Address="0x4F02"  data_b="0" data_h="0x00" Bit="[1]" Description=""  Mem_Type="RW" CID="4"/>
+		<reg reg_name="SHF_MOD" Address="0x4F02"  data_b="0" data_h="0x00" Bit="[0]" Description="SHUFFLE_CTRL mode 1:固定模式  0：伪随机模式"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="SHF_INI" Address="0x4F03"  data_b="0" data_h="0x00" Bit="[11:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="SHF_INI" Address="0x4F04"  data_b="0" data_h="0x01" Bit="[7:0]" Description="SHUFFLE_CTRL 伪随机初始值"  Mem_Type="RW" CID=""/>
+		<reg reg_name="RX_ACT" Address="0x4F05"  data_b="0" data_h="0x00" Bit="[0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="RX_ST" Address="0x4F06"  data_b="0" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RX_ST" Address="0x4F07"  data_b="0" data_h="0x00" Bit="[7:0]" Description="SHUFFLE_CTRL 伪随机初始值"  Mem_Type="RW" CID=""/>
+		<reg reg_name="RX_LEN" Address="0x4F08"  data_b="*" data_h="0x01" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RX_LEN" Address="0x4F09"  data_b="*" data_h="0x11" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TX_ST1" Address="0x4F0A"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TX_ST1" Address="0x4F0B"  data_b="*" data_h="0x6C" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TX_LEN1" Address="0x4F0C"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TX_LEN1" Address="0x4F0D"  data_b="*" data_h="0x29" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="ECLP_ST" Address="0x4F0E"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ECLP_ST" Address="0x4F0F"  data_b="*" data_h="0x13" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="ECLP_LEN" Address="0x4F10"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ECLP_LEN" Address="0x4F11"  data_b="*" data_h="0x2E" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="RST_CNT_ST" Address="0x4F12"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RST_CNT_ST" Address="0x4F13"  data_b="*" data_h="0x08" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="RST_CNT_LEN" Address="0x4F14"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RST_CNT_LEN" Address="0x4F15"  data_b="*" data_h="0x03" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="SEL_ST1" Address="0x4F16"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="SEL_ST1" Address="0x4F17"  data_b="*" data_h="0x10" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="SEL_ST2" Address="0x4F18"  data_b="*" data_h="0x01" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="SEL_ST2" Address="0x4F19"  data_b="*" data_h="0x06" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="SEL_LEN1" Address="0x4F1A"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="SEL_LEN1" Address="0x4F1B"  data_b="*" data_h="0xF6" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="SEL_LEN2" Address="0x4F1C"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="SEL_LEN2" Address="0x4F1D"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="SH_PGA_ST1" Address="0x4F1E"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="SH_PGA_ST1" Address="0x4F1F"  data_b="*" data_h="0x16" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="SH_PGA_ST2" Address="0x4F20"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="SH_PGA_ST2" Address="0x4F21"  data_b="*" data_h="0xDB" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="SH_PGA_LEN1" Address="0x4F22"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="SH_PGA_LEN1" Address="0x4F23"  data_b="*" data_h="0x26" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="SH_PGA_LEN2" Address="0x4F24"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="SH_PGA_LEN2" Address="0x4F25"  data_b="*" data_h="0x26" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="RST_PGA_ST" Address="0x4F26"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RST_PGA_ST" Address="0x4F27"  data_b="*" data_h="0x05" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="RST_PGA_LEN" Address="0x4F28"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RST_PGA_LEN" Address="0x4F29"  data_b="*" data_h="0x44" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="RST_ADC_ST" Address="0x4F2A"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RST_ADC_ST" Address="0x4F2B"  data_b="*" data_h="0x05" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="RST_ADC_LEN" Address="0x4F2C"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="RST_ADC_LEN" Address="0x4F2D"  data_b="*" data_h="0x49" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="EN_RAMP_ST1" Address="0x4F2E"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="EN_RAMP_ST1" Address="0x4F2F"  data_b="*" data_h="0x71" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="EN_RAMP_ST2" Address="0x4F30"  data_b="*" data_h="0x01" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="EN_RAMP_ST2" Address="0x4F31"  data_b="*" data_h="0x0B" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="EN_RAMP_LEN1" Address="0x4F32"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="EN_RAMP_LEN1" Address="0x4F33"  data_b="*" data_h="0x5F" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="EN_RAMP_LEN2" Address="0x4F34"  data_b="*" data_h="0x02" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="EN_RAMP_LEN2" Address="0x4F35"  data_b="*" data_h="0x37" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="STA_DA_ST" Address="0x4F36"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="STA_DA_ST" Address="0x4F37"  data_b="*" data_h="0x56" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="STA_DA_LEN" Address="0x4F38"  data_b="*" data_h="0x02" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="STA_DA_LEN" Address="0x4F39"  data_b="*" data_h="0xEF" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TX_AD_ST" Address="0x4F3A"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TX_AD_ST" Address="0x4F3B"  data_b="*" data_h="0xD5" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TX_AD_LEN" Address="0x4F3C"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TX_AD_LEN" Address="0x4F3D"  data_b="*" data_h="0x31" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CNT_DN_ST" Address="0x4F3E"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CNT_DN_ST" Address="0x4F3F"  data_b="*" data_h="0x05" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CNT_DN_LEN" Address="0x4F40"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CNT_DN_LEN" Address="0x4F41"  data_b="*" data_h="0xDB" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DARK_CTRL_ST" Address="0x4F42"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DARK_CTRL_ST" Address="0x4F43"  data_b="*" data_h="0x16" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="DARK_CTRL_LEN" Address="0x4F44"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="DARK_CTRL_LEN" Address="0x4F45"  data_b="*" data_h="0xC5" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="REF_PIXEL_CTRL_ACT" Address="0x4F46"  data_b="*" data_h="0x00" Bit="[0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="REF_PIXEL_CTRL_ST" Address="0x4F47"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="REF_PIXEL_CTRL_ST" Address="0x4F48"  data_b="*" data_h="0x56" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="REF_PIXEL_CTRL_LEN" Address="0x4F49"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="REF_PIXEL_CTRL_LEN" Address="0x4F4A"  data_b="*" data_h="0xBA" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="WR_ECLP_ST" Address="0x4F4B"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="WR_ECLP_ST" Address="0x4F4C"  data_b="*" data_h="0x2E" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="WR_ECLP_LEN" Address="0x4F4D"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="WR_ECLP_LEN" Address="0x4F4E"  data_b="*" data_h="0x05" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CK_DA_ACT" Address="0x4F4F"  data_b="*" data_h="0x00" Bit="[0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="CK_DA_ST" Address="0x4F50"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CK_DA_ST" Address="0x4F51"  data_b="*" data_h="0x2E" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="CK_DA_LEN" Address="0x4F52"  data_b="*" data_h="0x03" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="CK_DA_LEN" Address="0x4F53"  data_b="*" data_h="0x1E" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="BIAS_SAMPLE_ST" Address="0x4F54"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="BIAS_SAMPLE_ST" Address="0x4F55"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="BIAS_SAMPLE_LEN" Address="0x4F56"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="BIAS_SAMPLE_LEN" Address="0x4F57"  data_b="*" data_h="0x1B" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="BIAS_SAMPLE_RDAC_ST" Address="0x4F58"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="BIAS_SAMPLE_RDAC_ST" Address="0x4F59"  data_b="*" data_h="0x20" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="BIAS_SAMPLE_RDAC_LEN" Address="0x4F5A"  data_b="*" data_h="0x03" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="BIAS_SAMPLE_RDAC_LEN" Address="0x4F5B"  data_b="*" data_h="0x2C" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TX_ST2" Address="0x4F5C"  data_b="*" data_h="0x01" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TX_ST2" Address="0x4F5D"  data_b="*" data_h="0x0F" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="TX_LEN2" Address="0x4F5E"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="TX_LEN2" Address="0x4F5F"  data_b="*" data_h="0x7F" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="FEEDBACK_LEN" Address="0x4F60"  data_b="*" data_h="0x00" Bit="[10:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="FEEDBACK_LEN" Address="0x4F61"  data_b="*" data_h="0x3C" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+		<reg reg_name="EN_WR_LEN" Address="0x4F62"  data_b="*" data_h="0x03" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="WSTP_VALUE" Address="0x4F63"  data_b="*" data_h="0x00" Bit="[3:8]" Description=""  Mem_Type="RO" CID="01"/>
+		<reg reg_name="WSTP_VALUE" Address="0x4F64"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RO" CID=""/>
+		<reg reg_name="ROW_SWITCH_WIDTH" Address="0x4F65"  data_b="*" data_h="0x00" Bit="[9:8]" Description=""  Mem_Type="RW" CID="01"/>
+		<reg reg_name="ROW_SWITCH_WIDTH" Address="0x4F66"  data_b="*" data_h="0x50" Bit="[7:0]" Description=""  Mem_Type="RW" CID=""/>
+	
+
+
+	
+		<reg reg_name="PD_ADC" Address="0x5000"  data_b="0" data_h="0x00" Bit="[7]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PD_CPN" Address="0x5000"  data_b="0" data_h="0x00" Bit="[6]" Description="Test模式power down信号，为“0”时，对应的test pin无输出；为“1”时，FBDIV_MON/FREF_MON有效输出" Mem_Type="RW" CID="8"/>
+		<reg reg_name="PD_CPP" Address="0x5000"  data_b="0" data_h="0x00" Bit="[5]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PD_CPP_LDO_TX" Address="0x5000"  data_b="0" data_h="0x00" Bit="[4]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PD_RDAC" Address="0x5000"  data_b="0" data_h="0x00" Bit="[3]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PD_RDAC_BUF" Address="0x5000"  data_b="0" data_h="0x00" Bit="[2]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PD_FADC" Address="0x5000"  data_b="0" data_h="0x00" Bit="[1]" Description="FADC使能信号：0：正常工作(默认),1：Power Down"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PD_PGA" Address="0x5000"  data_b="0" data_h="0x00" Bit="[0]" Description=""  Mem_Type="RW" CID="8"/>
+		<reg reg_name="PD_NPOWD_PLL" Address="0x5001"  data_b="1" data_h="0x10" Bit="[4]" Description=""  Mem_Type="RW" CID="5"/>
+		<reg reg_name="PD_RDAC_LDO" Address="0x5001"  data_b="0" data_h="0x10" Bit="[3]" Description=""  Mem_Type="RW" CID="5"/>
+		<reg reg_name="PD_REF" Address="0x5001"  data_b="0" data_h="0x10" Bit="[2]" Description=""  Mem_Type="RW" CID="5"/>
+		<reg reg_name="PD_TS" Address="0x5001"  data_b="0" data_h="0x10" Bit="[1]" Description=""  Mem_Type="RW" CID="5"/>
+		<reg reg_name="PD_VDAC" Address="0x5001"  data_b="0" data_h="0x10" Bit="[0]" Description=""  Mem_Type="RW" CID="5"/>
+		<reg reg_name="VDARK_LOW_RANGE" Address="0x5002"  data_b="1" data_h="0x62" Bit="[6]" Description=""  Mem_Type="RW" CID="3"/>
+		<reg reg_name="TRIM_V1P2_LDO" Address="0x5002"  data_b="1000" data_h="0x62" Bit="[5:2]" Description=""  Mem_Type="RW" CID="3"/>
+		<reg reg_name="ILIMIT_LDO" Address="0x5002"  data_b="10" data_h="0x62" Bit="[1:0]" Description=""  Mem_Type="RW" CID="3"/>
+		<reg reg_name="EN_VREF_EXT" Address="0x5003"  data_b="0" data_h="0x08" Bit="[6]" Description="外灌电压使能信号，高电平有效"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="EN_IREF_EXT" Address="0x5003"  data_b="0" data_h="0x08" Bit="[5]" Description="外灌电流使能信号，高电平有效"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="ANA_TEST_EN" Address="0x5003"  data_b="0" data_h="0x08" Bit="[4]" Description="模拟检测电路使能信号，高电平有效"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="TRIM_IREF_INNER" Address="0x5003"  data_b="1000" data_h="0x08" Bit="[3:0]" Description="模块内部基准电流TRIM信号0000:5.62uA ,1000:9.85uA (default),1111:28.8uA ,"  Mem_Type="RW" CID="4"/>
+        <reg reg_name="TRIM_VREF_PGA" Address="0x5004"  data_b="100" data_h="0x12" Bit="[4:2]" Description="PGA 参考电压TRIM信号;000:0.9v; 100:1.10v(default)；111:1.25v ,step:0.05v"  Mem_Type="RW" CID="2"/>
+        <reg reg_name="TRIM_VREF_RDAC_SLOPE" Address="0x5004"  data_b="10" data_h="0x12" Bit="[1:0]" Description="RDAC 斜坡参考电压TRIM信号：UP  00:0.9V, 01:1.05V, 10:1.2V,(默认) 11:1.35V  DOWN  00:2.10V, 01:2.25V, 10:2.40V, 11:2.5V"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_VREF_ECLP" Address="0x5005"  data_b="010010" data_h="0x12" Bit="[5:0]" Description="去太阳黑子参考电压TRIM信号，默认值1.7V;2.6v~1.34v变化，00_0000:1.34v，11_1111:2.6v"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TRIM_IBIAS_ECLP_BUF" Address="0x5006"  data_b="100" data_h="0x24" Bit="[5:3]" Description="ECLIPSE BUF驱动电流TRIM信号;000:5.1uA,100:2.55uA,111:1.85uA"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_IBIAS_PGA_BUF" Address="0x5006"  data_b="100" data_h="0x24" Bit="[2:0]" Description="PGA BUF驱动电流TRIM信号;000:5.1uA,100:2.55uA,111:1.85uA"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_IBIAS_CP_BUF" Address="0x5007"  data_b="100" data_h="0x24" Bit="[5:3]" Description="CP BUF驱动电流TRIM信号; 000:5.1uA,100:2.55uA,111:1.85uA"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_IBIAS_VDARK_BUF" Address="0x5007"  data_b="100" data_h="0x24" Bit="[2:0]" Description="VDARK BUF驱动电流TRIM信号; 000:5.1uA,100:2.55uA,111:1.85uA"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="REF_MODE" Address="0x5008"  data_b="0" data_h="0x00" Bit="[0]" Description="BG电路降噪模式控制: 0, RC降噪(默认); 1, 无RC降噪"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TRIM_VDARK_HIGH" Address="0x5009"  data_b="*" data_h="0x80" Bit="[7:0]" Description="VDARK_HIGH参考电压控制信号,有效范围为：0x00~0xD0，0x00:1.63v, 0x80:1.95v(default), 0xD0:2.15v"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TRIM_IBIAS_BG_VGEN" Address="0x500A"  data_b="100" data_h="0x48" Bit="[6:4]" Description="VREF_MAIN模块中buffer驱动电流TRIM信号;000:5.1uA,100:2.55uA,111:1.85uA"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_BG_OUT" Address="0x500A"  data_b="1000" data_h="0x48" Bit="[3:0]" Description="BG 核1.2V输出电压TRIM信号;0000:1.464,1000:1.201,1111:0.99"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="SEL_ABLC_DIRCT" Address="0x500B"  data_b="0" data_h="0x00" Bit="[0]" Description="0:VDARK_LOW电压递减变化，1:VDARK_LOW电压递增变化(1.95v~1.312v)"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TRIM_VREF_CPP" Address="0x500C"  data_b="1000" data_h="0x88" Bit="[7:4]" Description="CPP参考电压控制信号，0000:1.16v, 1000:1.2v(default), 1111:1.235v"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_VREF_CPP_LDO" Address="0x500C"  data_b="1000" data_h="0x88" Bit="[3:0]" Description="CPP中LDO参考电压控制信号，0000:1.92v, 1000:2.0v(default), 1111:2.07v"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_VREF_CPP_LDO_TX" Address="0x500D"  data_b="1000" data_h="0x88" Bit="[7:4]" Description="CPP中LDO_TX参考电压控制信号，0000:1.92v, 1000:2.0v(default), 1111:2.07v"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_VREF_CPN" Address="0x500D"  data_b="1000" data_h="0x88" Bit="[3:0]" Description="CPN参考电压控制信号，0000:1.04v, 1000:1.2v(default), 1111:1.34v"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_VREF_LDO_CORE" Address="0x500E"  data_b="1000" data_h="0x44" Bit="[6:3]" Description="LDO_CORE参考电压控制信号：0000:1.0v, 1000:1.2v(default), 1111:1.375v"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_VREF_VDAC" Address="0x500E"  data_b="100" data_h="0x44" Bit="[2:0]" Description="VDAC参考电压控制信号：000:1.0v, 100:1.2v(default), 111:1.35v"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_VREF_RDAC" Address="0x500F"  data_b="100" data_h="0x24" Bit="[5:3]" Description="RDAC参考电压控制信号：000:1.0v, 100:1.2v(default), 111:1.35v"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_IBIAS_FADC" Address="0x500F"  data_b="100" data_h="0x24" Bit="[2:0]" Description="FADC中比较器偏置电流TRIM信号：000:330nA, 100:657.6nA, 111:903nA"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TRIM_IBIAS_RDAC" Address="0x5010"  data_b="10001000" data_h="0x88" Bit="[7:0]" Description="[7:4]DAC输出BUF驱动电流TRIM信号0000:190uA 1000:80uA(default);1111:40uA，[3:0]DAC 输入BUF驱动电流TRIM信号0000:145uA; 1000:90uA(default); 1111:40uA"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="RDAC_INIT" Address="0x5011"  data_b="01011110" data_h="0x5E" Bit="[7:0]" Description="DAC 初始值TRIM信号，向下抬的电压值0000_0000: 0mV;  0101_1110: 105mV（default); 1111_1111: 286mV"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="DRIVE" Address="0x5012"  data_b="*" data_h="0x00" Bit="[2:0]" Description="DAC switch翻转点TRIM信号，即斜坡Glitch TRIM信号"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="DRIVE_X" Address="0x5013"  data_b="*" data_h="0x00" Bit="[3:0]" Description="DAC switch翻转点TRIM信号，即斜坡Glitch TRIM信号"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="SEL_RDAC_TX" Address="0x5014"  data_b="00" data_h="0x00" Bit="[1:0]" Description="DAC TEST选择信号00 ibp_tx ; 01  ib_tx1 ; 10  vramp_da; 11 VLDO"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TRIM_VRAMP_VPP" Address="0x5015"  data_b="*" data_h="0x00" Bit="[3:0]" Description="RAMP波第一个斜波的斜率TRIM信号"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="SEL_VRAMP_DIRCT" Address="0x5016"  data_b="0" data_h="0x00" Bit="[4]" Description="0：上斜坡（默认）；1：下斜坡"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="TRIM_RDAC_BW" Address="0x5016"  data_b="0" data_h="0x00" Bit="[3]" Description="输出级BUF带宽调节, 0:10MHz(default)  1:5MHz"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="TRIM_RDAC_LDO" Address="0x5016"  data_b="100" data_h="0x00" Bit="[2:0]" Description="DAC模块中LDO输出电压选择000: 2.34V   100:2.7V(default)   111:2.97V"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="EN_SAMPLE_RDAC1" Address="0x5017"  data_b="0" data_h="0x00" Bit="[1]" Description="输出BUF偏置VBN,VBP采样控制 0:：采用模式 1：直通模式"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="EN_SAMPLE_RDAC2" Address="0x5017"  data_b="0" data_h="0x00" Bit="[0]" Description="输出BUF偏置VBNC,VBPC采样控制 0:：采用模式 1：直通模式"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="SEL_RDAC_OUTCAP" Address="0x5018"  data_b="0" data_h="0x08" Bit="[6]" Description="da_outn/da_outp信号线加滤波电容。0：不加（默认）；1：加"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="SEL_VD_CAP" Address="0x5018"  data_b="0" data_h="0x08" Bit="[5]" Description="VD信号线加滤波电容。0：不加（默认）；1：加"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="SEL_VRAMP_CAP" Address="0x5018"  data_b="0" data_h="0x08" Bit="[4]" Description="VRAMP 信号线增加滤波电容。0：不加（默认）；1：加"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="TRIM_IBIAS_VDAC" Address="0x5018"  data_b="1000" data_h="0x08" Bit="[3:0]" Description="驱动电流TRIM信号0000:145uA; 1000: 80uA(default); 1111:40uA"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="TRIM_VDAC_RANGE" Address="0x5019"  data_b="1000" data_h="0x10" Bit="[4:1]" Description="输出范围TRIM信号0000:406mV; 1000:504mV(default); 1111:633mV"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="EN_POST_CAP" Address="0x5019"  data_b="0" data_h="0x10" Bit="[0]" Description="PGA输出对地电容选择，0：无效（默认）；1：有效"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="SH_PGA_MODE" Address="0x501A"  data_b="0" data_h="0x21" Bit="[4]" Description="PGA采样模式，0：PGA前端采样（默认）；1：PGA后端采样"  Mem_Type="RW" CID="5"/>
+		<reg reg_name="EN_OVERFLOW" Address="0x501A"  data_b="0" data_h="0x21" Bit="[3]" Description="ADC益出保护控制位，0：有溢出保护（默认） 1：无溢出保护 "  Mem_Type="RW" CID="5"/>
+		<reg reg_name="EN_BPS_PGA" Address="0x501A"  data_b="0" data_h="0x21" Bit="[2]" Description="BYPASS PGA使能信号，1：有效，默认值为：0"  Mem_Type="RW" CID="5"/>
+		<reg reg_name="ECLP_MODE" Address="0x501A"  data_b="0" data_h="0x21" Bit="[1]" Description="去太阳黑子模式；0：比较器模式， 1：load mos 模式"  Mem_Type="RW" CID="5"/>
+		<reg reg_name="EN_ECLP" Address="0x501A"  data_b="1" data_h="0x21" Bit="[0]" Description="去太阳黑子BPS使能信号，高电平有效"  Mem_Type="RW" CID="5"/>
+		<reg reg_name="TRIM_IBIAS_PIXEL" Address="0x501B"  data_b="1000" data_h="0x08" Bit="[3:0]" Description="PIXEL偏置电流TRIM信号，默认5uA（100）"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TRIM_IBIAS_COMP" Address="0x501C"  data_b="1000" data_h="0x08" Bit="[3:0]" Description="ADC比较器偏置电流TRIM信号，默认8.5uA（100）"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TRIM_IBIAS_PGA" Address="0x501D"  data_b="1000" data_h="0x08" Bit="[3:0]" Description="PGA偏置电流TRIM信号，默认4.69uA（100）"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="EN_SAMPLE_PIX1" Address="0x501E"  data_b="0" data_h="0x02" Bit="[7]" Description="PIXEL偏置采样模式1。0：直通；1：采样"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="EN_SAMPLE_PIX2" Address="0x501E"  data_b="0" data_h="0x02" Bit="[6]" Description="PIXEL偏置采样模式2。0：直通；1：采样"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="EN_SAMPLE_PGA1" Address="0x501E"  data_b="0" data_h="0x02" Bit="[5]" Description="PGA偏置采样模式1。0：直通；1：采样"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="EN_SAMPLE_PGA2" Address="0x501E"  data_b="0" data_h="0x02" Bit="[4]" Description="PGA偏置采样模式2。0：直通；1：采样"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="EN_SAMPLE_COMP1" Address="0x501E"  data_b="0" data_h="0x02" Bit="[3]" Description="COMP偏置采样模式1。0：直通；1：采样"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="EN_SAMPLE_COMP2" Address="0x501E"  data_b="0" data_h="0x02" Bit="[2]" Description="COMP偏置采样模式2。0：直通；1：采样"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="EN_RST_DELAY" Address="0x501E"  data_b="1" data_h="0x02" Bit="[1]" Description="COMP_ADC复位信号下降沿延迟差使能。1：有延迟差（默认100ns）；0：无延迟差"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="EN_COMP_BALANCE" Address="0x501E"  data_b="0" data_h="0x02" Bit="[0]" Description="ADC比较器电流平衡电路使能：0：默认打开；1：关闭"  Mem_Type="RW" CID="8"/>
+		<reg reg_name="ADC_RESERVED" Address="0x501F"  data_b="*" data_h="0x00" Bit="[3:0]" Description="ADC预留控制位"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="CPP_TEST_CTRL" Address="0x5020"  data_b="00" data_h="0x14" Bit="[6:5]" Description="CPP测试控制位；00：正常工作模式，关断EXT端口，01：测试模式，检测CPP的输出电压，10/11：外灌电压模式，通过EXT端口外灌电压，"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="SEL_CPP_IREF" Address="0x5020"  data_b="10" data_h="0x14" Bit="[4:3]" Description="CPP偏置电流控制位;00:5uA , 01:15uA ， 10:10uA，11:20uA"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="SEL_CPP_OUT" Address="0x5020"  data_b="100" data_h="0x14" Bit="[2:0]" Description="纯CP模式下CPP输出电压控制位；000:3.7v， 001：3.8v  ,010:3.9v , 011:4.0v ,100:4.1v , 101: 4.2v , 110:4.3v;  111:4.4v"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="SEL_CPP_LDO" Address="0x5021"  data_b="100" data_h="0x09" Bit="[3:1]" Description="CPP中加入LDO模式状态下控制LDO最终输出：000:3.70v， 001：3.8v  ,010:3.9v , 011:4.0v ,100:4.1v , 101: 4.2v , 110:4.3v;  111:4.4v"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="CPP_LDO_EN" Address="0x5021"  data_b="1" data_h="0x09" Bit="[0]" Description="CP中LDO使能信号，0：不使能；1：使能。默认为1"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="SEL_CP_IREF" Address="0x5022"  data_b="10" data_h="0x89" Bit="[7:6]" Description="CP整体偏置电流控制位;00:5uA , 01:10uA ， 10:10uA，11:15uA"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="CPP_LDO_TX_TEST_CTRL" Address="0x5022"  data_b="00" data_h="0x89" Bit="[5:4]" Description="CPP_LDO_TX测试控制位；00：正常工作模式，关断EXT端口，01：测试模式，检测CPP_LDO_TX的输出电压，10/11：外灌电压模式，通过EXT端口外灌电压"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="SEL_CPP_LDO_TX" Address="0x5022"  data_b="100" data_h="0x89" Bit="[3:1]" Description="CPP_LDO_TX最终输出：000:2.9v， 001：2.95v  ,010:3.0v , 011:3.05v ,100:3.1v , 101: 3.15v , 110:3.2v;  111:3.25v"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="CPN_LDO_EN" Address="0x5022"  data_b="1" data_h="0x89" Bit="[0]" Description="CPN_LDO使能信号，默认为1，LDO使能"  Mem_Type="RW" CID="4"/>
+		<reg reg_name="CPN_TEST_CTRL" Address="0x5023"  data_b="00" data_h="0x14" Bit="[6:5]" Description="CPN测试控制位；00：正常工作模式，关断EXT端口，01：测试模式，检测CPN输出电压，10/11：外灌电压模式，通过EXT端口外灌电压，"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="CPN_IREF_SEL" Address="0x5023"  data_b="10" data_h="0x14" Bit="[4:3]" Description="CPN偏置电流控制位;00:5uA , 01:15uA ， 10:10uA，11:20uA"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="SEL_CPN_OUT" Address="0x5023"  data_b="100" data_h="0x14" Bit="[2:0]" Description="CPN输出电压控制位；000:-0.55v， 001：-0.65v  ,010:-0.75v , 011:-0.85v"  Mem_Type="RW" CID="3"/>
+		<reg reg_name="TESTCNT_PLL" Address="0x5024"  data_b="00" data_h="0x00" Bit="[2:1]" Description="PLL测试模式选择，00：正常工作；01：VCO测试"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TSEL_PLL" Address="0x5024"  data_b="0" data_h="0x00" Bit="[0]" Description="PLL分频器测试控制，0：正常工作；1：分频器测试"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TS_DINI" Address="0x5025"  data_b="*" data_h="0x80" Bit="[7:0]" Description="TS初始计数位"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="TS_IT" Address="0x5026"  data_b="1000" data_h="0x90" Bit="[7:5]" Description="TS偏置电流控制位；000:0uA，001:2.5uA ，100:10uA，111:17.5uA"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TS_BGVT" Address="0x5026"  data_b="10000" data_h="0x90" Bit="[4:0]" Description="TS BG 1.2V TRIM位；00000：1.23V 10000：1.2V 11111：1.17V Step：1.5mV"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="TS_PTAT_SEL" Address="0x5027"  data_b="0" data_h="0x01" Bit="[5]" Description="PTAT电压选择信号，0为TS自身PTAT,1为REF的PTAT，默认为0"  Mem_Type="RW" CID="5"/>
+		<reg reg_name="TS_IREF_SEL" Address="0x5027"  data_b="0" data_h="0x01" Bit="[4]" Description="电流选择信号，0为TS自身产生电流,1为REF的电流，默认为0"  Mem_Type="RW" CID="5"/>
+		<reg reg_name="TS_VREF_SEL" Address="0x5027"  data_b="0" data_h="0x01" Bit="[3]" Description="参考电压选择信号，0为TS自身产生的参考电压,1为REF的参考，默认为0"  Mem_Type="RW" CID="5"/>
+		<reg reg_name="TS_TCTL" Address="0x5027"  data_b="00" data_h="0x01" Bit="[2:1]" Description="TS 测试控制位；00：空  01：VBG 10： VPTAT11：VRAMP"  Mem_Type="RW" CID="5"/>
+		<reg reg_name="TS_SEL_CHOP" Address="0x5027"  data_b="1" data_h="0x01" Bit="[0]" Description="斩波功能电平选择位,高电平有效"  Mem_Type="RW" CID="5"/>
+		<reg reg_name="TRIM_TS_RAMP" Address="0x5028"  data_b="*" data_h="0x6F" Bit="[7:0]" Description="TS RAMP TRIM位; [7:5] ：PTAT TRIM信号，[4:0] RAMP 斜率 TRIM信号"  Mem_Type="RW" CID="1"/>
+		<reg reg_name="SEL_IOTEST" Address="0x5029"  data_b="000" data_h="0x00" Bit="[3:1]" Description="ATEST0 000:RX0_TEST；001:RX303_TEST；010:VR_0P9_TEST；011:VDARK_HIGH_TEST；100:VREF_RDAC_TEST；101:IREF_2UA_TEST；110:TS_TEST1；111:VREF_CPP_TEST ATEST1:000:SEL0_TEST；001:SEL303_TEST；010:VR_2P6_TEST；011:VDARK_LOW_TEST；100:VREF_RDAC_SLOPE_TEST；101:IREF_10UA_TEST；110:TS_TEST2；111:VREF_CPN_TEST ATEST2:000:TX1_0_TEST；001:TX1_303_TEST；010:VBG_TEST；011:VREF_ECLP_TEST；100:VREF_VDAC_TEST；101:IREF_40UA_TEST；110:POR_TEST；111:VREF_CPP_LDO_TEST ATEST3:000:TX2_0_TEST；001:TX2_303_TEST；010:VREF_LDO_CORE_TEST；011:VREF_PGA_TEST；100:VRAMP_TEST；101:IREF_50UA_TEST；110:AVSS_DA_REF；111:VREF_CPP_LDO_TX_TEST"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="EN_IOTEST" Address="0x5029"  data_b="0" data_h="0x00" Bit="[0]" Description="0：不使能（默认）；1：使能"  Mem_Type="RW" CID="2"/>
+		<reg reg_name="DUMMY16" Address="0x502A"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="DUMMY17" Address="0x502B"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="DUMMY18" Address="0x502C"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="DUMMY19" Address="0x502D"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+		<reg reg_name="DUMMY20" Address="0x502E"  data_b="*" data_h="0x00" Bit="[7:0]" Description=""  Mem_Type="RW" CID="1"/>
+			
+	</Module>
+
+</chip>
